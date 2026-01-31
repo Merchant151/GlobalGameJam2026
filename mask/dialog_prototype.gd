@@ -8,14 +8,19 @@ var choice = "2"
 var curr_time_line = 0
 var active_character_tag
 
+
+signal starting_dialog_ended
+signal ending_dialog_ended
+
+
 # Called when the node enters the scene tree for the first time.
 func set_active_character(val):
 	active_character_tag = val
 func _ready() -> void:
-	set_active_character($resources.character_tag_SOLDIER)
-	start_encounter()
+	#set_active_character($resources.character_tag_SOLDIER)
+	#start_new_encounter()
 	pass
-func start_encounter():
+func start_new_encounter():
 	curr_time_line = 0
 	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
 	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
@@ -57,15 +62,8 @@ func build_pre_choice_timeline():
 	wait = DialogicWaitEvent.new()
 	wait.time = 1
 	events.push_back(wait)
-	#var choice_event_1 = DialogicChoiceEvent.new()
-	#choice_event_1.text = "present mask"
-	#var choice_event_2 = DialogicChoiceEvent.new()
-	#choice_event_2.text = "present mask 2"
-	#events.push_back(choice_event_1)
-	#events.push_back(choice_event_2)
 	timeline_0 = DialogicTimeline.new()
 	timeline_0.events = events
-	###Construct time line and play timeline
 func build_post_choice_timeline(choice):
 	var timeline = null
 	var events = []
@@ -87,17 +85,28 @@ func build_post_choice_timeline(choice):
 	timeline = DialogicTimeline.new()
 	timeline.events = events
 	return timeline
-var init_states = [false,false,false]
-
+func set_mask_choice(val):
+	choice = val
+	pass
+func end_encounter():
+	var timeline = get("timeline_"+choice)
+	timeline.events_processed = true
+	Dialogic.start(timeline)
+	curr_time_line = int(choice)
+		
 func on_timeline_ended():
 	if curr_time_line==0:
 		curr_time_line = -1
-		if choice =="1":
-			timeline_1.events_processed = true
-			Dialogic.start(timeline_1)
-		elif choice =="2":
-			timeline_2.events_processed = true
-			Dialogic.start(timeline_2)
+		starting_dialog_ended.emit()
+	if curr_time_line == 1 or curr_time_line == 2:
+		ending_dialog_ended.emit()
+		curr_time_line = -1
+		#if choice =="1":
+			#timeline_1.events_processed = true
+			#Dialogic.start(timeline_1)
+		#elif choice =="2":
+			#timeline_2.events_processed = true
+			#Dialogic.start(timeline_2)
 			
 	pass
 
