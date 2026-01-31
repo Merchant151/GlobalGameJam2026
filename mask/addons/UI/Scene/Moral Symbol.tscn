@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bbbjt15nwb6te"]
+
+[ext_resource type="Texture2D" uid="uid://dk677aplokoyo" path="res://addons/UI/SteamPunk GUI/ButtonH.png" id="1_y84ix"]
+
+[node name="NinePatchRect" type="NinePatchRect" unique_id=260420872]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.011979561
+size_flags_vertical = 0
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2093061289]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 113.0
+rotation = 1.5624559
+texture = ExtResource("1_y84ix")

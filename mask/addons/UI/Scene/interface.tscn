@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cutehnrngpoow"]
+
+[ext_resource type="PackedScene" uid="uid://ntywb473wkvc" path="res://addons/UI/Scene/Join Rebels Button.tscn" id="1_6va6t"]
+[ext_resource type="PackedScene" uid="uid://cxjrts1kwfca6" path="res://addons/UI/Scene/Obey Brother Button.tscn" id="2_4yg1r"]
+[ext_resource type="PackedScene" uid="uid://d3jxd2kh1txmr" path="res://addons/UI/Scene/Base Moral Bar.tscn" id="3_emcyx"]
+
+[node name="Interface" type="Control" unique_id=1147923417]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+
+[node name="Base Bar" parent="." unique_id=1439087780 instance=ExtResource("3_emcyx")]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 592.0
+offset_right = 726.0
+offset_bottom = 690.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Control2" parent="." unique_id=2100260751 instance=ExtResource("2_4yg1r")]
+layout_mode = 1
+offset_left = 334.0
+offset_top = 450.0
+offset_right = 334.0
+offset_bottom = 450.0
+
+[node name="Control" parent="." unique_id=226140978 instance=ExtResource("1_6va6t")]
+layout_mode = 1
+offset_left = 667.0
+offset_top = 448.0
+offset_right = 667.0
+offset_bottom = 448.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1576625257]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
