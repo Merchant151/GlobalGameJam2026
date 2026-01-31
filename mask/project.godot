@@ -13,24 +13,29 @@ config_version=5
 config/name="mask"
 run/main_scene="uid://b17s7517minmj"
 config/features=PackedStringArray("4.6")
-config/icon="res://icon.png"
+config/icon="res://portraits/icon.png"
 
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+resources="*uid://d3lkaf48m6qba"
 
 [dialogic]
 
 directories/dch_directory={
-"test_character1": "res://test_character1.dch"
+"soldier_character": "res://characters/soldier_character.dch",
+"test_character1": "res://characters/test_character1.dch"
 }
 directories/dtl_directory={
 "test_character_timeline": "res://test_character_timeline.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://portraits/test_style.tres",
+"test_style": "res://portraits/test_style.tres"
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://portraits/test_style.tres"]
+layout/default_style="res://portraits/test_style.tres"
 
 [editor_plugins]
 

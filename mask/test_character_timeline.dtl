@@ -1,7 +1,9 @@
-join test_character1 center
+join soldier_character center
 [wait time="1.0"]
-test_character1: Hello. Lo Big Brother. I am bald and I am in need a new mask
+soldier_character: Hello. Lo Big Brother.
+soldier_character:  I am a soldier in need of a mask.
 I have the perfect mask for you.....
 [wait time="1.0"]
 - Present Mask 1
-- Present Mask 2
+- 
+[wait time="3.0"]
