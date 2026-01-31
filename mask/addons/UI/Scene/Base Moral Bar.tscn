@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d3jxd2kh1txmr"]
+
+[ext_resource type="PackedScene" uid="uid://bbbjt15nwb6te" path="res://addons/UI/Scene/Moral Symbol.tscn" id="1_j8itj"]
+[ext_resource type="Texture2D" uid="uid://cunrvqearo3gx" path="res://addons/UI/SteamPunk GUI/EnergyEmpty2.png" id="1_nryld"]
+[ext_resource type="Texture2D" uid="uid://ds5ej7crmf04r" path="res://addons/UI/SteamPunk GUI/EnergyFull2.png" id="2_j8itj"]
+
+[node name="Base Bar" type="HBoxContainer" unique_id=1439087780]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 721.0
+grow_vertical = 2
+rotation = -1.5707964
+
+[node name="NinePatchRect" parent="." unique_id=260420872 instance=ExtResource("1_j8itj")]
+layout_mode = 2
+
+[node name="MoralEnergyBar" type="TextureProgressBar" parent="." unique_id=1617745346]
+layout_mode = 2
+value = 40.0
+texture_under = ExtResource("1_nryld")
+texture_progress = ExtResource("2_j8itj")

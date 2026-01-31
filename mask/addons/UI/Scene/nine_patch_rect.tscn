@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cd2bjsdbtfivk"]
+
+[ext_resource type="Texture2D" uid="uid://cunrvqearo3gx" path="res://addons/UI/SteamPunk GUI/EnergyEmpty2.png" id="1_osjqa"]
+[ext_resource type="Texture2D" uid="uid://bqp5os7yxoyx6" path="res://addons/UI/SteamPunk GUI/GearS.png" id="2_jjx1f"]
+
+[node name="Counter" type="NinePatchRect" unique_id=1283071554]
+offset_right = 364.0
+offset_bottom = 126.0
+texture = ExtResource("1_osjqa")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1244554091]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -56.5
+offset_bottom = 56.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_jjx1f")
+
+[node name="Label" type="Label" parent="." unique_id=1938637657]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -10.0
+offset_right = 9.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day" type="Label" parent="." unique_id=1031344775]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = -10.0
+offset_right = 154.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Day:"

@@ -37,6 +37,11 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://portraits/test_style.tres"]
 layout/default_style="res://portraits/test_style.tres"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
