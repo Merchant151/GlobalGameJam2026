@@ -4,14 +4,15 @@ extends Node2D
 var mask_selection = false
 var questioning = false
 var active_guy = false
+var car = 0
 
-var characterArray = [ $dialog_prototype/resources.character_tag_SOLDIER, $dialog_prototype/resources.character_tag_BALD_MAN]
-var character_paths= { $dialog_prototype/resources.character_tag_SOLDIER: {
-	big_brother_variant:1,
-	rebellion_variant:2,
-	}
-}
-
+@onready var characterArray = [ $dialog_prototype/resources.character_tag_SOLDIER, $dialog_prototype/resources.character_tag_BALD_MAN]
+#var character_paths= { $dialog_prototype/resources.character_tag_SOLDIER: {
+#	big_brother_variant:1,
+#	}
+#}
+var answer_key = [1 , 2] 
+var answer = null
 
 signal mask(maskNum)
 signal score_signal(update_by)
@@ -23,7 +24,7 @@ func _ready() -> void:
 	var score_node = get_node(score_path)
 	score_signal.connect(score_node.update_score)
 	var dial = $dialog_prototype
-	mask.connect(dial.mask_choice)
+	#mask.connect(dial.mask_choice)
 	## Start game. 
 	#start UI 
 	#Start anyTImers and such
@@ -39,6 +40,7 @@ func _process(_delta: float) -> void:
 		print('mask1 selected')
 		print('sent the bad mask')
 		mask.emit('1')
+		answer =1 
 		##kill_npc()
 		#await get_tree().create_timer(1.0).timeout
 		#change_score(10)
@@ -46,6 +48,7 @@ func _process(_delta: float) -> void:
 		print('mask2 selected')
 		print('sent the good mask')
 		mask.emit('2')
+		answer = 2
 		##kill_npc()
 		await get_tree().create_timer(1.0).timeout
 		change_score(-10)
@@ -58,8 +61,8 @@ func spawn_NPC():
 	print('spawn an NPC')
 	#TODO: change soldier tab to this guy
 	active_guy = true
-	random(len()
-	$dialog_prototype.set_active_character($dialog_prototype/resources.character_tag_SOLDIER)
+	car = randi()%len(characterArray)
+	$dialog_prototype.set_active_character(characterArray[car])
 	$dialog_prototype.start_new_encounter()
 	##Yield for Gameply system
 	#Read the input
@@ -95,5 +98,22 @@ func on_ending_dialog_ended():
 	active_guy = false
 	#Doo all of the game updates. 
 	#change Score
-	#check_game_result()
+	var res = check_answer()
+	check_game_result(res)
 	
+
+func check_game_result(was_good):
+	if (was_good):
+		print('good thing happens')
+	else:
+		print('bad thing happnes')
+
+func check_answer():
+	if (answer_key[car] == answer):
+		print('good')
+		change_score(50)
+		return true
+	else:
+		print('bad')
+		change_score(-50)
+		return false
