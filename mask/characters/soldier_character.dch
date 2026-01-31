@@ -1,0 +1,31 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "soldier",
+&"description": "just a loser",
+&"display_name": "Soldier Character",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"soldier": {
+"export_overrides": {
+"image": "\"res://portraits/soldier_portrait.jpg\""
+},
+"mirror": false,
+"offset": Vector2(0, -100),
+"scale": 0.5,
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
+}
+},
+&"scale": 1.0
+}
