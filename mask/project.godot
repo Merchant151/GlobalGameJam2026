@@ -18,7 +18,6 @@ config/icon="res://portraits/icon.png"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
-resources="*uid://d3lkaf48m6qba"
 
 [dialogic]
 

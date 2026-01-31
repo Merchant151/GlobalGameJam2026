@@ -24,6 +24,8 @@ func _ready() -> void:
 	var score_node = get_node(score_path)
 	score_signal.connect(score_node.update_score)
 	var dial = $dialog_prototype
+	dial.starting_dialog_ended.connect(on_starting_dialog_ended)
+	dial.ending_dialog_ended.connect(on_ending_dialog_ended)
 	#mask.connect(dial.mask_choice)
 	## Start game. 
 	#start UI 
@@ -38,20 +40,19 @@ func _process(_delta: float) -> void:
 		print('pause the game!')
 	if(Input.is_action_just_pressed("mask1")&&mask_selection):
 		print('mask1 selected')
-		print('sent the bad mask')
-		mask.emit('1')
+		print('sent the rebel mask')
+		$dialog_prototype.set_mask_choice('1')
+		$dialog_prototype.end_encounter()
 		answer =1 
 		##kill_npc()
-		#await get_tree().create_timer(1.0).timeout
-		#change_score(10)
 	if(Input.is_action_just_pressed('mask2')&&mask_selection):
 		print('mask2 selected')
-		print('sent the good mask')
+		print('sent the big brother mask')
 		mask.emit('2')
+		$dialog_prototype.set_mask_choice('2')
+		$dialog_prototype.end_encounter()
 		answer = 2
 		##kill_npc()
-		await get_tree().create_timer(1.0).timeout
-		change_score(-10)
 	
 	if(!active_guy):
 		await get_tree().create_timer(2.0).timeout
@@ -93,9 +94,11 @@ func change_score(num):
 
 func on_starting_dialog_ended(): 
 	mask_selection = true
+	print('mask_selection True')
 
 func on_ending_dialog_ended():
 	active_guy = false
+	mask_selection= false
 	#Doo all of the game updates. 
 	#change Score
 	var res = check_answer()
