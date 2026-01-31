@@ -1,7 +1,19 @@
 extends Node2D
 
 #
-var active_guy = null
+var mask_selection = false
+var questioning = false
+var active_guy = false
+
+var characterArray = [ $dialog_prototype/resources.character_tag_SOLDIER, $dialog_prototype/resources.character_tag_BALD_MAN]
+var character_paths= { $dialog_prototype/resources.character_tag_SOLDIER: {
+	big_brother_variant:1,
+	rebellion_variant:2,
+	}
+}
+
+
+signal mask(maskNum)
 signal score_signal(update_by)
 @export var score_path : NodePath 
 
@@ -10,6 +22,8 @@ func _ready() -> void:
 	print('Hello World')
 	var score_node = get_node(score_path)
 	score_signal.connect(score_node.update_score)
+	var dial = $dialog_prototype
+	mask.connect(dial.mask_choice)
 	## Start game. 
 	#start UI 
 	#Start anyTImers and such
@@ -21,14 +35,18 @@ func _process(_delta: float) -> void:
 	#every frame check user in  
 	if(Input.is_action_just_pressed("esc")):
 		print('pause the game!')
-	if(Input.is_action_just_pressed("mask1")):
+	if(Input.is_action_just_pressed("mask1")&&mask_selection):
 		print('mask1 selected')
-		kill_npc()
-		await get_tree().create_timer(1.0).timeout
-		change_score(10)
-	if(Input.is_action_just_pressed('mask2')):
+		print('sent the bad mask')
+		mask.emit('1')
+		##kill_npc()
+		#await get_tree().create_timer(1.0).timeout
+		#change_score(10)
+	if(Input.is_action_just_pressed('mask2')&&mask_selection):
 		print('mask2 selected')
-		kill_npc()
+		print('sent the good mask')
+		mask.emit('2')
+		##kill_npc()
 		await get_tree().create_timer(1.0).timeout
 		change_score(-10)
 	
@@ -38,11 +56,22 @@ func _process(_delta: float) -> void:
 
 func spawn_NPC():
 	print('spawn an NPC')
-	var npc = load("res://node_src/npc_node2d.tscn")
-	#var npc = load("res://icon.tscn")
-	npc = npc.instantiate()
-	active_guy = npc
-	get_tree().current_scene.add_child.call_deferred(npc)
+	#TODO: change soldier tab to this guy
+	active_guy = true
+	random(len()
+	$dialog_prototype.set_active_character($dialog_prototype/resources.character_tag_SOLDIER)
+	$dialog_prototype.start_new_encounter()
+	##Yield for Gameply system
+	#Read the input
+	#set the choice and then allow that scenario to play out
+	#Player feedback: bars going up Score+-
+	#set enw active chracetr(kee track of played through characters)
+	#Play Scenario Repeat
+	#var npc = load("res://node_src/npc_node2d.tscn")
+	##var npc = load("res://icon.tscn")
+	#npc = npc.instantiate()
+	
+	#get_tree().current_scene.add_child.call_deferred(npc)
 	pass
 
 func kill_npc():
@@ -58,3 +87,13 @@ func change_score(num):
 	print('change score by ', num)
 	score_signal.emit(num)
 	pass
+
+func on_starting_dialog_ended(): 
+	mask_selection = true
+
+func on_ending_dialog_ended():
+	active_guy = false
+	#Doo all of the game updates. 
+	#change Score
+	#check_game_result()
+	

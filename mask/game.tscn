@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b17s7517minmj"]
 
 [ext_resource type="Script" uid="uid://criu3j2lw686o" path="res://script/Manager.gd" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://b07gn85k3yvc3" path="res://dialog_prototype.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cm1uijqbs0f0c" path="res://tempAssests/temp_label_score.tscn" id="2_feb5d"]
 
 [node name="game" type="Node2D" unique_id=1311804636]
@@ -8,5 +9,7 @@
 [node name="GameManager" type="Node2D" parent="." unique_id=251380704]
 script = ExtResource("2_e2o6t")
 score_path = NodePath("../TempLabelScore")
+
+[node name="dialog_prototype" parent="GameManager" unique_id=753128585 instance=ExtResource("2_fc0e3")]
 
 [node name="TempLabelScore" parent="." unique_id=315817975 instance=ExtResource("2_feb5d")]
