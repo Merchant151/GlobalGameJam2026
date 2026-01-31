@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cm1uijqbs0f0c"]
+
+[ext_resource type="Script" uid="uid://bmn6a1w2rac6j" path="res://script/score.gd" id="1_ju1qv"]
+
+[node name="TempLabelScore" type="Node2D" unique_id=315817975]
+script = ExtResource("1_ju1qv")
+
+[node name="score" type="Label" parent="." unique_id=1464842427]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "JUICE"
