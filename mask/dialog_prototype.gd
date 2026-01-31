@@ -12,14 +12,14 @@ var active_character_tag
 func set_active_character(val):
 	active_character_tag = val
 func _ready() -> void:
-	set_active_character(resources.character_tag_SOLDIER)
+	set_active_character($resources.character_tag_SOLDIER)
 	start_encounter()
 	pass
 func start_encounter():
 	curr_time_line = 0
-	varient = randi()%len(resources.pre_dialog_options[active_character_tag])
-	varient = randi()%len(resources.pre_dialog_options[active_character_tag])
-	varient = randi()%len(resources.pre_dialog_options[active_character_tag])
+	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
+	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
+	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
 	print(varient)
 	build_pre_choice_timeline()
 	timeline_1 = build_post_choice_timeline("1")
@@ -37,13 +37,13 @@ func start_encounter():
 func build_pre_choice_timeline():
 	var events = []
 	var event = DialogicCharacterEvent.new()
-	var character = resources.characters[active_character_tag]
+	var character = $resources.characters[active_character_tag]
 	event.character = character
 	events.push_back(event)
 	var wait = DialogicWaitEvent.new()
 	wait.time = 2
 	events.push_back(wait)
-	for option in resources.pre_dialog_options[active_character_tag][varient]:
+	for option in $resources.pre_dialog_options[active_character_tag][varient]:
 		var pre_text_event = DialogicTextEvent.new()
 		pre_text_event.character = character
 		pre_text_event.text = option
@@ -70,13 +70,13 @@ func build_post_choice_timeline(choice):
 	var timeline = null
 	var events = []
 	var event = DialogicCharacterEvent.new()
-	var character = resources.characters[active_character_tag]
+	var character = $resources.characters[active_character_tag]
 	event.character = character
 	events.push_back(event)
 	var wait = DialogicWaitEvent.new()
 	wait.time = 1
 	events.push_back(wait)
-	for option in resources.get("post_mask_"+choice+"_dialog_options")[active_character_tag][varient]:
+	for option in $resources.get("post_mask_"+choice+"_dialog_options")[active_character_tag][varient]:
 		var post_text_event = DialogicTextEvent.new()
 		post_text_event.character = character
 		post_text_event.text = option
