@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://b17s7517minmj"]
+[gd_scene format=3 uid="uid://cyqsijf4j1q1m"]
+
+[ext_resource type="PackedScene" uid="uid://c2c52eisi27he" path="res://node_src/npc_node2d.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://criu3j2lw686o" path="res://script/Manager.gd" id="2_e2o6t"]
 
 [node name="game" type="Node2D" unique_id=1311804636]
+
+[node name="Node2D" parent="." unique_id=982315108 instance=ExtResource("1_80nbo")]
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=251380704]
+script = ExtResource("2_e2o6t")
