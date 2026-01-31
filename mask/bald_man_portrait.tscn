@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://k2cp2ekpf1q4"]
+
+[ext_resource type="Texture2D" uid="uid://rhwr1keyx5r8" path="res://icon.png" id="1_16col"]
+
+[node name="Node2D" type="Node2D" unique_id=1816608798]
+
+[node name="bald_man_portrait" type="Sprite2D" parent="." unique_id=1757949421]
+position = Vector2(574, 313)
+texture = ExtResource("1_16col")
