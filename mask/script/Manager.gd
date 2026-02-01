@@ -157,10 +157,10 @@ func on_ending_dialog_ended():
 
 func check_game_result(was_good):
 	var result = health_object.value
-	if (was_good):
-		print('good thing happens')
-	else:
-		print('bad thing happnes')
+	#if (was_good):
+	#	print('good thing happens')
+	#else:
+	#	print('bad thing happnes')
 	if (result <= 0):
 		message_singal.emit("GAME OVER")
 		running = false
@@ -178,12 +178,19 @@ func check_game_result(was_good):
 
 func check_answer():
 	if (answer_key[car][int($dialog_prototype.varient)] == answer):
-		print('good')
-		change_score(30)
+		print('correct player match')
+		if (answer == 1):
+			change_score(30)
+		if (answer == 2):
+			change_score(-10)
 		return true
 	else:
-		print('bad')
-		change_score(-30)
+		print('gave player the wrong mask')
+		if (answer == 1):
+			change_score(-30)
+			pass
+		elif (answer == 2):
+			change_score(-20)
 		return false
 
 func hide_masks():
