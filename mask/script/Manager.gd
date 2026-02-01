@@ -2,6 +2,7 @@ extends Node2D
 
 #
 var running = true
+var suspect_value = 20
 #
 var mask_selection = false
 var questioning = false
@@ -78,7 +79,7 @@ func _ready() -> void:
 	popup_win = get_node("Interface/Win Panel")
 	popup_lose.visible = false
 	popup_win.visible = false
-	
+	#set_suspect()
 	spawn_NPC()
 
 
@@ -216,6 +217,7 @@ func check_answer():
 		pass
 		if(answer == 2 ):
 			#give them the big brother mask
+			#change_suspect(-20)
 			change_score(-20)
 			return false
 		elif(answer == answer_key[car][int($dialog_prototype.varient)]):
@@ -223,10 +225,12 @@ func check_answer():
 			print('answer',answer)
 			print('exact fit!')
 			change_score(+30)
+			#change_suspect(+5)
 			return true
 		else: 
 			print('answer')
 			print('almost Match')
+			#change_suspect(+10)
 			change_score(10)
 			return true
 	elif(answer_key[car][int($dialog_prototype.varient)] == 2):
@@ -235,13 +239,15 @@ func check_answer():
 			#gave a big brother mask to a big brother supporter
 			#moral drops but so does suspission
 			change_score(-10)
-			return true
 			#change_suspect(-20)
+			return true
+			
 		else:
 			#give big brother any rebel mask
 			change_score(-20)
-			return false
 			#change_suspect(30)
+			return false
+			
 
 	#if (answer_key[car][int($dialog_prototype.varient)] == answer):
 		#print('correct player match')
@@ -309,6 +315,13 @@ func mask4_selected():
 func mask2_selected():
 	selected = 2
 
+func change_suspect(num):
+	suspect_value = suspect_value + num
+	set_suspect()
+
+func set_suspect():
+	print('set the suspicion meter value')
+	pass
 
 func _on_button_pressed() -> void:
 	pass # Replace with function body.
