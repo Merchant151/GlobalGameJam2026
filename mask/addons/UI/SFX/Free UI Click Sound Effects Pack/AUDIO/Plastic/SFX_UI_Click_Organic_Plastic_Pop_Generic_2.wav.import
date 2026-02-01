@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dqctlr0so24kt"
+path="res://.godot/imported/SFX_UI_Click_Organic_Plastic_Pop_Generic_2.wav-a3aefd4ac9ccf278e4a1b0196b4aec6e.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Plastic/SFX_UI_Click_Organic_Plastic_Pop_Generic_2.wav"
+dest_files=["res://.godot/imported/SFX_UI_Click_Organic_Plastic_Pop_Generic_2.wav-a3aefd4ac9ccf278e4a1b0196b4aec6e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

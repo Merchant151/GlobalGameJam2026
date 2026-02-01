@@ -125,9 +125,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_e5e13")
 theme_override_styles/hover = SubResource("StyleBoxFlat_u6ofa")
 text = "Start"
 
-[node name="SFX_slct_start" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Start Btn" unique_id=2054219495]
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Start Btn" unique_id=2054219495]
 stream = ExtResource("4_53bq7")
-volume_db = 10.0
 
 [node name="Credits Btn" type="Button" parent="PanelContainer/MenuPanel/MainButtons" unique_id=2111143481]
 custom_minimum_size = Vector2(50, 50)
@@ -142,9 +141,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_u6ofa")
 text = "Credits
 "
 
-[node name="SFX_slct_credits" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Credits Btn" unique_id=460942212]
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Credits Btn" unique_id=460942212]
 stream = ExtResource("4_53bq7")
-volume_db = 10.0
 
 [node name="Quit Btn" type="Button" parent="PanelContainer/MenuPanel/MainButtons" unique_id=112178881]
 custom_minimum_size = Vector2(50, 50)
@@ -159,9 +157,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_u6ofa")
 text = "Quit
 "
 
-[node name="SFX_slct_quit" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Quit Btn" unique_id=364203384]
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Quit Btn" unique_id=364203384]
 stream = ExtResource("4_53bq7")
-volume_db = 10.0
 
 [node name="CreditsPanel" type="Panel" parent="PanelContainer" unique_id=1758618358]
 visible = false
@@ -250,12 +247,9 @@ text = "Back to Main Menu
 
 "
 
-[node name="SFX_slct_back" type="AudioStreamPlayer2D" parent="PanelContainer/CreditsPanel/Back Btn" unique_id=496636861]
-stream = ExtResource("4_53bq7")
-volume_db = 10.0
-
 [connection signal="mouse_entered" from="PanelContainer/MenuPanel/MainButtons/Start Btn" to="." method="_on_start_btn_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/MenuPanel/MainButtons/Start Btn" to="." method="_on_start_btn_pressed"]
+[connection signal="toggled" from="PanelContainer/MenuPanel/MainButtons/Start Btn" to="." method="_on_start_btn_toggled"]
 [connection signal="pressed" from="PanelContainer/MenuPanel/MainButtons/Credits Btn" to="." method="_on_credits_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuPanel/MainButtons/Quit Btn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/CreditsPanel/Back Btn" to="." method="_on_back_btn_pressed"]

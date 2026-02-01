@@ -18,6 +18,7 @@ config/icon="res://portraits/icon.png"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+FadeToBlack="*uid://csjruq100dfn4"
 
 [dialogic]
 

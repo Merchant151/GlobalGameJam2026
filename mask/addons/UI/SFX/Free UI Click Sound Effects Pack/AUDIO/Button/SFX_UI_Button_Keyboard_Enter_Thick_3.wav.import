@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2qoxdhu63fum"
+path="res://.godot/imported/SFX_UI_Button_Keyboard_Enter_Thick_3.wav-c1ccdd9171f1186704e200566b9f20bb.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Button/SFX_UI_Button_Keyboard_Enter_Thick_3.wav"
+dest_files=["res://.godot/imported/SFX_UI_Button_Keyboard_Enter_Thick_3.wav-c1ccdd9171f1186704e200566b9f20bb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

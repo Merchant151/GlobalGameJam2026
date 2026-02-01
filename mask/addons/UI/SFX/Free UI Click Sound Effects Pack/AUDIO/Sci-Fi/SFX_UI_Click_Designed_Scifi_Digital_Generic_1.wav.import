@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5culukj16bhh"
+path="res://.godot/imported/SFX_UI_Click_Designed_Scifi_Digital_Generic_1.wav-8f0d2d6da9c055340093b5775c054934.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Sci-Fi/SFX_UI_Click_Designed_Scifi_Digital_Generic_1.wav"
+dest_files=["res://.godot/imported/SFX_UI_Click_Designed_Scifi_Digital_Generic_1.wav-8f0d2d6da9c055340093b5775c054934.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
