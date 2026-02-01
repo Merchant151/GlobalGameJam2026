@@ -1,7 +1,7 @@
-join soldier_character center
+join walter_character center
 [wait time="1.0"]
-soldier_character: Hello. Lo Big Brother.
-soldier_character:  I am a soldier in need of a mask.
+clarrisa_character: Hello. Lo Big Brother.
+clarrisa_character:  I am a soldier in need of a mask.
 I have the perfect mask for you.....
 [wait time="1.0"]
 - Present Mask 1

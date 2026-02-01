@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cx4ir06260fkx" path="res://dialog_prototype.gd" id="1_shoo5"]
 [ext_resource type="Script" uid="uid://d3lkaf48m6qba" path="res://resources.gd" id="2_cnqa3"]
+[ext_resource type="Texture2D" uid="uid://b3nibw0l4hbkm" path="res://mask_stand.png" id="3_sqp3q"]
 
 [node name="dialog_prototype" type="Node2D" unique_id=753128585]
 script = ExtResource("1_shoo5")
 
 [node name="resources" type="Node" parent="." unique_id=1227120925]
 script = ExtResource("2_cnqa3")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2035866533]
+offset_left = 160.0
+offset_top = -97.0
+offset_right = 1035.0
+offset_bottom = 778.0
+texture = ExtResource("3_sqp3q")
