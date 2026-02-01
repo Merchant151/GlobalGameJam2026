@@ -172,7 +172,9 @@ func kill_npc():
 func change_score(num):
 	if (num > 0):
 		#positive score movement
-		if(suspect_value > 60):
+		if(suspect_value > 80):
+			num = num - 10
+		elif(suspect_value > 60):
 			num = num - 5
 		elif(suspect_value < 30):
 			num = num + 10
