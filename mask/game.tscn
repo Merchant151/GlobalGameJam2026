@@ -12,9 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://d3jxd2kh1txmr" path="res://addons/UI/Scene/Base Moral Bar.tscn" id="9_215e1"]
 [ext_resource type="Texture2D" uid="uid://b51dgvercqjak" path="res://addons/UI/Images/Rebel play mask.jpg" id="10_7sc4i"]
 [ext_resource type="Texture2D" uid="uid://da8abu0sbq1ay" path="res://addons/UI/Images/Obey play mask.jpg" id="11_80cx4"]
+[ext_resource type="Texture2D" uid="uid://dgvgr8640epfc" path="res://addons/UI/SteamPunk GUI/EnergyEmpty1.png" id="12_215e1"]
+[ext_resource type="Texture2D" uid="uid://m0n8c673s61q" path="res://addons/UI/Images/Watching eye.webp" id="13_7sc4i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcyx"]
 texture = ExtResource("8_lc2xo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80cx4"]
 
 [node name="game" type="Node2D" unique_id=1311804636]
 
@@ -307,6 +311,46 @@ autowrap_mode = 2
 autowrap_trim_flags = 192
 icon_alignment = 1
 expand_icon = true
+
+[node name="Suspicion" type="PanelContainer" parent="GameManager" unique_id=1922997107]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 242.0
+offset_top = 14.0
+offset_right = 763.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_80cx4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/Suspicion" unique_id=1044072866]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GameManager/Suspicion/HBoxContainer" unique_id=1369822127]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 10.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = ExtResource("4_vef74")
+texture_progress = ExtResource("12_215e1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GameManager/Suspicion/HBoxContainer" unique_id=766763314]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="TextureRect" type="TextureRect" parent="GameManager/Suspicion/HBoxContainer/NinePatchRect" unique_id=1732842923]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -50.5
+offset_right = 103.0
+offset_bottom = 44.5
+grow_vertical = 2
+texture = ExtResource("13_7sc4i")
+expand_mode = 1
 
 [node name="TempLabelScore" parent="." unique_id=315817975 instance=ExtResource("2_feb5d")]
 

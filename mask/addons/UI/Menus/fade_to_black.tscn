@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://csjruq100dfn4"]
 
 [ext_resource type="Script" uid="uid://dnu6x13n2jt8c" path="res://addons/UI/Menus/fade_to_black.gd" id="1_irail"]
+[ext_resource type="Texture2D" uid="uid://bm41f4d6aq8de" path="res://rebellion_mask.png" id="2_poxjp"]
 
 [sub_resource type="Animation" id="Animation_ys81w"]
 length = 0.001
@@ -66,7 +67,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6169786, 0.00030794056, 0.62442124, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=824656700]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -140.0
+offset_right = 154.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_poxjp")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=285292668]
 root_node = NodePath("../ColorRect")
