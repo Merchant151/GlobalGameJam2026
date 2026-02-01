@@ -1,7 +1,7 @@
 extends Node2D
 
 #
-var running = true
+var running = false
 var suspect_value = 20
 #
 var mask_selection = false
@@ -94,6 +94,13 @@ func _ready() -> void:
 	popup_lose.visible = false
 	popup_win.visible = false
 	#set_suspect()
+	
+	$Interface/Info/TextEdit.text = "Hover over the masks to lean about them. Try to match the rebels with the best job for their personality. Don't give masks to those that might report you!"
+	popup_info.visible = true
+	await get_tree().create_timer(9.0).timeout
+	popup_info.visible = false
+	
+	running = true
 	spawn_NPC()
 
 
