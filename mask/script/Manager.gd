@@ -49,6 +49,7 @@ var answer = null
 
 signal mask(maskNum)
 signal score_signal(update_by)
+signal suspect_signal(update_to)
 signal message_singal(message)
 @export var score_path : NodePath 
 
@@ -57,6 +58,7 @@ func _ready() -> void:
 	print('Hello World')
 	var score_node = get_node(score_path)
 	score_signal.connect(score_node.update_score)
+	suspect_signal.connect(score_node.update_suspect)
 	message_singal.connect(score_node.update_message)
 	var dial = $dialog_prototype
 	dial.starting_dialog_ended.connect(on_starting_dialog_ended)
