@@ -118,7 +118,7 @@ func _process(_delta: float) -> void:
 		answer = 3
 		selected = 0
 		hide_masks()
-	if((Input.is_action_just_pressed('mask4')|| selected == 2)&&mask_selection):
+	if((Input.is_action_just_pressed('mask4')|| selected == 4)&&mask_selection):
 		print('mask selected')
 		print('sent the rebel mask')
 		$dialog_prototype.set_mask_choice('2')
@@ -169,6 +169,20 @@ func kill_npc():
 
 
 func change_score(num):
+	if (num > 0):
+		#positive score movement
+		if(suspect_value > 60):
+			num = num - 5
+		elif(suspect_value < 30):
+			num = num + 10
+	else:
+		#negative score movement
+		if(suspect_value > 80):
+			num = num - 20
+		elif(suspect_value > 60):
+			num = num - 10
+		else:
+			num = num + 5
 	print('change score by ', num)
 	score_signal.emit(num)
 	if(health_object):
@@ -219,21 +233,21 @@ func check_answer():
 		pass
 		if(answer == 2 ):
 			#give them the big brother mask
-			change_suspect(-20)
 			change_score(-20)
+			change_suspect(-20)
 			return false
 		elif(answer == answer_key[car][int($dialog_prototype.varient)]):
 			#give the rebel the exact mask they want
 			print('answer',answer)
 			print('exact fit!')
-			change_score(+30)
-			change_suspect(+5)
+			change_score(30)
+			change_suspect(5)
 			return true
 		else: 
 			print('answer')
 			print('almost Match')
-			change_suspect(+10)
 			change_score(10)
+			change_suspect(10)
 			return true
 	elif(answer_key[car][int($dialog_prototype.varient)] == 2):
 		#this is someone who prefers a Big brother mask. 
@@ -247,7 +261,7 @@ func check_answer():
 		else:
 			#give big brother any rebel mask
 			change_score(-20)
-			#change_suspect(30)
+			change_suspect(30)
 			return false
 			
 
