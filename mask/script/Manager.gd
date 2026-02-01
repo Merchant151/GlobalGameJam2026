@@ -1,6 +1,8 @@
 extends Node2D
 
 #
+var running = false
+#
 var mask_selection = false
 var questioning = false
 var active_guy = false
@@ -29,6 +31,10 @@ func _ready() -> void:
 	#mask.connect(dial.mask_choice)
 	## Start game. 
 	#start UI 
+	##
+	var UI = load('res://addons/UI/Scene/interface.tscn')
+	UI = UI.instantiate()
+	get_tree().root.add_child.call_deferred(UI)
 	#Start anyTImers and such
 	spawn_NPC()
 
@@ -54,7 +60,7 @@ func _process(_delta: float) -> void:
 		answer = 2
 		##kill_npc()
 	
-	if(!active_guy):
+	if(!active_guy&&running):
 		await get_tree().create_timer(2.0).timeout
 		if(!active_guy): spawn_NPC()
 
