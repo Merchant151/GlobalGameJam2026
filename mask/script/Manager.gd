@@ -1,12 +1,15 @@
 extends Node2D
 
 #
-var running = false
+var running = true
 #
 var mask_selection = false
 var questioning = false
 var active_guy = false
 var car = 0
+var health_object = null
+var visit_count = 0
+var used_list = []
 
 @onready var characterArray = [ $dialog_prototype/resources.character_tag_SOLDIER, $dialog_prototype/resources.character_tag_BALD_MAN]
 #var character_paths= { $dialog_prototype/resources.character_tag_SOLDIER: {
@@ -18,6 +21,7 @@ var answer = null
 
 signal mask(maskNum)
 signal score_signal(update_by)
+signal message_singal(message)
 @export var score_path : NodePath 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +29,7 @@ func _ready() -> void:
 	print('Hello World')
 	var score_node = get_node(score_path)
 	score_signal.connect(score_node.update_score)
+	message_singal.connect(score_node.update_message)
 	var dial = $dialog_prototype
 	dial.starting_dialog_ended.connect(on_starting_dialog_ended)
 	dial.ending_dialog_ended.connect(on_ending_dialog_ended)
@@ -32,9 +37,10 @@ func _ready() -> void:
 	## Start game. 
 	#start UI 
 	##
-	var UI = load('res://addons/UI/Scene/interface.tscn')
-	UI = UI.instantiate()
-	get_tree().root.add_child.call_deferred(UI)
+	#var UI = load('res://addons/UI/Scene/interface.tscn')
+	#UI = UI.instantiate()
+	#add_child.call_deferred(UI)
+	health_object = get_node("Interface/Base Bar/MoralEnergyBar")
 	#Start anyTImers and such
 	spawn_NPC()
 
@@ -66,9 +72,16 @@ func _process(_delta: float) -> void:
 
 func spawn_NPC():
 	print('spawn an NPC')
-	#TODO: change soldier tab to this guy
+	visit_count += 1
 	active_guy = true
-	car = randi()%len(characterArray)
+	var picked_new = false
+	while(!picked_new):
+		car = randi()%len(characterArray)
+		if (used_list.has(car)):
+			continue
+		else: 
+			used_list.append(car)
+			picked_new = true
 	$dialog_prototype.set_active_character(characterArray[car])
 	$dialog_prototype.start_new_encounter()
 	##Yield for Gameply system
@@ -96,6 +109,9 @@ func kill_npc():
 func change_score(num):
 	print('change score by ', num)
 	score_signal.emit(num)
+	if(health_object):
+		var cur = health_object.value
+		health_object.value = cur + num
 	pass
 
 func on_starting_dialog_ended(): 
@@ -112,17 +128,32 @@ func on_ending_dialog_ended():
 	
 
 func check_game_result(was_good):
+	var result = health_object.value
 	if (was_good):
 		print('good thing happens')
 	else:
 		print('bad thing happnes')
+	if (result <= 0):
+		message_singal.emit("GAME OVER")
+		running = false
+	elif(result <= 0):
+		message_singal.emit("YOU WIN")
+		running = true
+	elif(len(used_list) == len(characterArray)):
+		print("ran out of characters for today!")
+		running = false
+		message_singal.emit('no one else visits the shop today!')
+	else:
+		print("game continues") 
+		
+	
 
 func check_answer():
 	if (answer_key[car] == answer):
 		print('good')
-		change_score(50)
+		change_score(30)
 		return true
 	else:
 		print('bad')
-		change_score(-50)
+		change_score(-30)
 		return false
