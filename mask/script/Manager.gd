@@ -29,13 +29,13 @@ $dialog_prototype/resources.character_tag_VICA,
 #	}
 #}
 var answer_key = [
-	[1,1], # Melody 
-	[1,1], # Clarrisa
-	[1,1], # DELI
-	[1,1], # Jarhead
-	[1,1], # Tyler
-	[1,1], # walter
-	[1,1]  # vica
+	[1,2], # Melody 
+	[1,2], # Clarrisa
+	[1,2], # DELI
+	[1,2], # Jarhead
+	[1,2], # Tyler
+	[1,2], # walter
+	[1,2]  # vica
 	] 
 var answer = null
 
@@ -75,17 +75,17 @@ func _process(_delta: float) -> void:
 	if((Input.is_action_just_pressed("mask1")||selected == 1)&&mask_selection):
 		print('mask1 selected')
 		print('sent the rebel mask')
-		$dialog_prototype.set_mask_choice('1')
+		$dialog_prototype.set_mask_choice('2')
 		$dialog_prototype.end_encounter()
-		answer =1 
+		answer = 1 
 		selected = 0
 		hide_masks()
 		##kill_npc()
 	if((Input.is_action_just_pressed('mask2')|| selected == 2)&&mask_selection):
 		print('mask2 selected')
 		print('sent the big brother mask')
-		mask.emit('2')
-		$dialog_prototype.set_mask_choice('2')
+		#mask.emit('2')
+		$dialog_prototype.set_mask_choice('1')
 		$dialog_prototype.end_encounter()
 		answer = 2
 		selected = 0
@@ -166,7 +166,7 @@ func check_game_result(was_good):
 		running = false
 	elif(result >= 100):
 		message_singal.emit("YOU WIN")
-		running = true
+		running = false
 	elif(len(used_list) == len(characterArray)):
 		print("ran out of characters for today!")
 		running = false
