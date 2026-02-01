@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://cunrvqearo3gx" path="res://addons/UI/SteamPunk GUI/EnergyEmpty2.png" id="4_vef74"]
 [ext_resource type="Texture2D" uid="uid://ds5ej7crmf04r" path="res://addons/UI/SteamPunk GUI/EnergyFull2.png" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://bkaqrtlcpquo5" path="res://addons/UI/SteamPunk GUI/Inventory1L.png" id="6_j5wjh"]
+[ext_resource type="Script" path="res://addons/UI/Scene/interface.gd" id="7_iotsf"]
+[ext_resource type="Texture2D" uid="uid://gd4m5q5na6pk" path="res://addons/UI/SteamPunk GUI/MenuFull.PNG" id="8_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://d3jxd2kh1txmr" path="res://addons/UI/Scene/Base Moral Bar.tscn" id="9_215e1"]
+[ext_resource type="Texture2D" uid="uid://b51dgvercqjak" path="res://addons/UI/Images/Rebel play mask.jpg" id="10_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://da8abu0sbq1ay" path="res://addons/UI/Images/Obey play mask.jpg" id="11_80cx4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcyx"]
+texture = ExtResource("8_lc2xo")
 
 [node name="game" type="Node2D" unique_id=1311804636]
 
@@ -16,12 +24,13 @@ score_path = NodePath("../TempLabelScore")
 
 [node name="dialog_prototype" parent="GameManager" unique_id=753128585 instance=ExtResource("2_fc0e3")]
 
-[node name="Interface" type="Control" parent="GameManager" unique_id=1147923417]
+[node name="Interface_old" type="Control" parent="GameManager" unique_id=1147923417]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 
-[node name="Base Bar" type="HBoxContainer" parent="GameManager/Interface" unique_id=1439087780]
+[node name="Base Bar" type="HBoxContainer" parent="GameManager/Interface_old" unique_id=1439087780]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -33,16 +42,16 @@ grow_vertical = 2
 rotation = -1.5707964
 scale = Vector2(0.5, 0.5)
 
-[node name="NinePatchRect" parent="GameManager/Interface/Base Bar" unique_id=260420872 instance=ExtResource("3_j5wjh")]
+[node name="NinePatchRect" parent="GameManager/Interface_old/Base Bar" unique_id=260420872 instance=ExtResource("3_j5wjh")]
 layout_mode = 2
 
-[node name="MoralEnergyBar" type="TextureProgressBar" parent="GameManager/Interface/Base Bar" unique_id=1617745346]
+[node name="MoralEnergyBar" type="TextureProgressBar" parent="GameManager/Interface_old/Base Bar" unique_id=1617745346]
 layout_mode = 2
 value = 40.0
 texture_under = ExtResource("4_vef74")
 texture_progress = ExtResource("5_hve3p")
 
-[node name="Control2" type="Control" parent="GameManager/Interface" unique_id=2100260751]
+[node name="Control2" type="Control" parent="GameManager/Interface_old" unique_id=2100260751]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +63,7 @@ offset_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="GameManager/Interface/Control2" unique_id=277286218]
+[node name="Button" type="Button" parent="GameManager/Interface_old/Control2" unique_id=277286218]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
@@ -62,7 +71,7 @@ scale = Vector2(0.45, 0.45)
 icon = ExtResource("6_j5wjh")
 autowrap_mode = 2
 
-[node name="Label" type="Label" parent="GameManager/Interface/Control2/Button" unique_id=1647254691]
+[node name="Label" type="Label" parent="GameManager/Interface_old/Control2/Button" unique_id=1647254691]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,7 +93,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="Control" type="Control" parent="GameManager/Interface" unique_id=226140978]
+[node name="Control" type="Control" parent="GameManager/Interface_old" unique_id=226140978]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,7 +105,7 @@ offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="GameManager/Interface/Control" unique_id=2067192561]
+[node name="Button" type="Button" parent="GameManager/Interface_old/Control" unique_id=2067192561]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
@@ -104,7 +113,7 @@ scale = Vector2(0.45, 0.45)
 icon = ExtResource("6_j5wjh")
 autowrap_mode = 2
 
-[node name="Label" type="Label" parent="GameManager/Interface/Control/Button" unique_id=1941767411]
+[node name="Label" type="Label" parent="GameManager/Interface_old/Control/Button" unique_id=1941767411]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,12 +131,161 @@ theme_override_font_sizes/font_size = 50
 text = "Join Rebels"
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/Interface" unique_id=1576625257]
+[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/Interface_old" unique_id=1576625257]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Interface" type="Control" parent="GameManager" unique_id=581214085]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("7_iotsf")
+
+[node name="Win Panel" type="Panel" parent="GameManager/Interface" unique_id=1700685479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GameManager/Interface/Win Panel" unique_id=347169918]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 143.0
+offset_right = 804.0
+offset_bottom = 394.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_emcyx")
+
+[node name="Label" type="Label" parent="GameManager/Interface/Win Panel/PanelContainer" unique_id=1938637364]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "
+You've Won"
+uppercase = true
+
+[node name="Returnbtn" type="Button" parent="GameManager/Interface/Win Panel/PanelContainer" unique_id=713272499]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return to Menu
+"
+
+[node name="TextEdit" type="TextEdit" parent="GameManager/Interface/Win Panel" unique_id=989818843]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 211.0
+offset_right = 776.0
+offset_bottom = 334.0
+text = "You Build a Rebllion to over throw Big Brother Enjoy the Spoils of Victory as you peel back his face, and Laugh at his demise!"
+wrap_mode = 1
+
+[node name="Lose Panel" type="Panel" parent="GameManager/Interface" unique_id=254378421]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GameManager/Interface/Lose Panel" unique_id=1450057595]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 143.0
+offset_right = 804.0
+offset_bottom = 394.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_emcyx")
+
+[node name="Label" type="Label" parent="GameManager/Interface/Lose Panel/PanelContainer" unique_id=280285012]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "
+You've Lost"
+uppercase = true
+
+[node name="Returnbtn" type="Button" parent="GameManager/Interface/Lose Panel/PanelContainer" unique_id=332837626]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return to Menu
+"
+
+[node name="TextEdit" type="TextEdit" parent="GameManager/Interface/Lose Panel" unique_id=823627871]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 211.0
+offset_right = 776.0
+offset_bottom = 334.0
+text = "You complacently adorn your mask. You're right where you belong Joining in song in honor of your loving, strong, and dominant..Big Brother"
+wrap_mode = 1
+
+[node name="Base Bar" parent="GameManager/Interface" unique_id=1703445548 instance=ExtResource("9_215e1")]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 592.0
+offset_right = 726.0
+offset_bottom = 690.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Mask selection panel" type="Panel" parent="GameManager/Interface" unique_id=938926497]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 490.0
+offset_top = 444.0
+offset_right = 698.0
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/Interface/Mask selection panel" unique_id=877843386]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -49.0
+offset_right = 169.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="rebelbtn" type="Button" parent="GameManager/Interface/Mask selection panel/HBoxContainer" unique_id=948349907]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_hover_color = Color(0.3882353, 0.8039216, 0.40784314, 1)
+icon = ExtResource("10_7sc4i")
+autowrap_mode = 2
+autowrap_trim_flags = 192
+icon_alignment = 1
+expand_icon = true
+
+[node name="obeybtn" type="Button" parent="GameManager/Interface/Mask selection panel/HBoxContainer" unique_id=330462506]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_hover_color = Color(0.3882353, 0.13333334, 0.40784314, 1)
+icon = ExtResource("11_80cx4")
+autowrap_mode = 2
+autowrap_trim_flags = 192
+icon_alignment = 1
+expand_icon = true
+
 [node name="TempLabelScore" parent="." unique_id=315817975 instance=ExtResource("2_feb5d")]
 
-[connection signal="pressed" from="GameManager/Interface/Control2/Button" to="GameManager" method="mask2_selected"]
-[connection signal="pressed" from="GameManager/Interface/Control/Button" to="GameManager" method="mask1_selected"]
+[connection signal="pressed" from="GameManager/Interface_old/Control2/Button" to="GameManager" method="mask2_selected"]
+[connection signal="pressed" from="GameManager/Interface_old/Control/Button" to="GameManager" method="mask1_selected"]
+[connection signal="pressed" from="GameManager/Interface/Win Panel/PanelContainer/Returnbtn" to="GameManager/Interface" method="_on_returnbtn_pressed"]
+[connection signal="pressed" from="GameManager/Interface/Lose Panel/PanelContainer/Returnbtn" to="GameManager/Interface" method="_on_returnbtn_pressed"]
+[connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/rebelbtn" to="GameManager" method="mask1_selected"]
+[connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/obeybtn" to="GameManager" method="mask2_selected"]

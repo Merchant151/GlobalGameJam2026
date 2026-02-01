@@ -12,6 +12,9 @@ var visit_count = 0
 var used_list = []
 var mask1 = null
 var mask2 = null
+var mask_trey = null
+var popup_win = null
+var popup_lose= null
 
 var selected = 0
 
@@ -61,9 +64,14 @@ func _ready() -> void:
 	#UI = UI.instantiate()
 	#add_child.call_deferred(UI)
 	health_object = get_node("Interface/Base Bar/MoralEnergyBar")
-	mask1 = get_node("Interface/Control")
-	mask2 = get_node("Interface/Control2")
-	#Start anyTImers and such
+	mask1 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn")
+	mask2 = get_node("Interface/Mask selection panel/HBoxContainer/obeybtn")
+	mask_trey = get_node("Interface/Mask selection panel")
+	popup_lose = get_node("Interface/Lose Panel")
+	popup_win = get_node("Interface/Win Panel")
+	popup_lose.visible = false
+	popup_win.visible = false
+	
 	spawn_NPC()
 
 
@@ -164,9 +172,11 @@ func check_game_result(was_good):
 	if (result <= 0):
 		message_singal.emit("GAME OVER")
 		running = false
+		popup_lose.visible = true
 	elif(result >= 100):
 		message_singal.emit("YOU WIN")
 		running = false
+		popup_win.visible = false
 	elif(len(used_list) == len(characterArray)):
 		print("ran out of characters for today!")
 		running = false
@@ -180,35 +190,44 @@ func check_answer():
 	if (answer_key[car][int($dialog_prototype.varient)] == answer):
 		print('correct player match')
 		if (answer == 1):
+			#gave a rebel mask to an aspiring rebel
 			change_score(30)
 		if (answer == 2):
+			#strengthened Big Brothers hold But reduces supsisions
 			change_score(-10)
 		return true
 	else:
 		print('gave player the wrong mask')
 		if (answer == 1):
+			#Gave a snitch a rebel mask
 			change_score(-30)
 			pass
 		elif (answer == 2):
+			#turned away a lost soul Weekening the rebellion
+			#decrease suspission
 			change_score(-20)
 		return false
 
 func hide_masks():
 	print("hide_masks")
+	if(mask_trey):
+		mask_trey.visible = false
 	if(mask1):
 		mask1.visible = false
-		$Interface/Control/Button.disabled = true
+		$"Interface/Mask selection panel/HBoxContainer/rebelbtn".disabled = true
 	if(mask2):
 		mask2.visible = false
-		$Interface/Control2/Button.disabled = true
+		$"Interface/Mask selection panel/HBoxContainer/obeybtn".disabled = true
 
 func show_masks():
+	if(mask_trey):
+		mask_trey.visible = true
 	if(mask1):
 		mask1.visible = true
-		$Interface/Control/Button.disabled = false
+		$"Interface/Mask selection panel/HBoxContainer/rebelbtn".disabled = false
 	if(mask2):
 		mask2.visible = true
-		$Interface/Control2/Button.disabled = false
+		$"Interface/Mask selection panel/HBoxContainer/obeybtn".disabled = false
 
 func mask1_selected():
 	selected = 1
