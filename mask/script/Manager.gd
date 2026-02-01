@@ -362,7 +362,7 @@ func mask2_selected():
 func change_suspect(num):
 	suspect_value = suspect_value + num
 	if(suspect_value <= 0):
-		suspect_object = 0
+		suspect_value = 0
 	elif(suspect_value >= 100):
 		suspect_value = 100
 	set_suspect()
