@@ -11,12 +11,20 @@ var health_object = null
 var visit_count = 0
 var used_list = []
 
-@onready var characterArray = [ $dialog_prototype/resources.character_tag_SOLDIER, $dialog_prototype/resources.character_tag_BALD_MAN]
+@onready var characterArray = [ 
+$dialog_prototype/resources.character_tag_MELODY, 
+$dialog_prototype/resources.character_tag_CLARRISA,
+$dialog_prototype/resources.character_tag_DELI,
+$dialog_prototype/resources.character_tag_JARED,
+$dialog_prototype/resources.character_tag_TYLER,
+$dialog_prototype/resources.character_tag_WALTER,
+$dialog_prototype/resources.character_tag_VICA,
+]
 #var character_paths= { $dialog_prototype/resources.character_tag_SOLDIER: {
 #	big_brother_variant:1,
 #	}
 #}
-var answer_key = [1 , 2] 
+var answer_key = [[1,1] , [1,1],[1,1],[1,1],[1,1],[1,1],[1,1]] 
 var answer = null
 
 signal mask(maskNum)
@@ -149,7 +157,7 @@ func check_game_result(was_good):
 	
 
 func check_answer():
-	if (answer_key[car] == answer):
+	if (answer_key[car][int($dialog_prototype.varient)] == answer):
 		print('good')
 		change_score(30)
 		return true

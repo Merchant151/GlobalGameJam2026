@@ -23,8 +23,15 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "characters/test_character1": "res://characters/test_character1.dch",
+"clarrisa_character": "res://characters/clarrisa_character.dch",
+"deli_character": "res://characters/deli_character.dch",
+"jared_character": "res://characters/jared_character.dch",
+"melody_character": "res://characters/melody_character.dch",
 "soldier_character": "res://characters/soldier_character.dch",
-"test_character1": "res://test_character1.dch"
+"test_character1": "res://test_character1.dch",
+"tyler_character": "res://characters/tyler_character.dch",
+"vica_character": "res://characters/vica_character.dch",
+"walter_character": "res://characters/walter_character.dch"
 }
 directories/dtl_directory={
 "test_character_timeline": "res://test_character_timeline.dtl"
