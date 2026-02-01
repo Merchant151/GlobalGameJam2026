@@ -99,7 +99,7 @@ func _ready() -> void:
 	$Interface/Info/TextEdit.text = "Hover over the masks to lean about them. Try to match the rebels with the best job for their personality. Don't give masks to those that might report you!"
 	popup_info.visible = true
 	pop_up_continue.visible = false
-	await get_tree().create_timer(11.0).timeout
+	await get_tree().create_timer(10.0).timeout
 	pop_up_continue.visible= true
 	popup_info.visible = false
 	
@@ -379,6 +379,10 @@ func change_suspect(num):
 
 func set_suspect():
 	print("set suspect", suspect_value)
+	if(suspect_object):
+		#print(suspect_object)
+		var curs = suspect_value
+		suspect_object.value = curs 
 	suspect_signal.emit(suspect_value)
 
 func _on_button_pressed() -> void:
