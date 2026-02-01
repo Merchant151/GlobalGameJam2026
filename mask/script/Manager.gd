@@ -10,6 +10,10 @@ var car = 0
 var health_object = null
 var visit_count = 0
 var used_list = []
+var mask1 = null
+var mask2 = null
+
+var selected = 0
 
 @onready var characterArray = [ 
 $dialog_prototype/resources.character_tag_MELODY, 
@@ -57,6 +61,8 @@ func _ready() -> void:
 	#UI = UI.instantiate()
 	#add_child.call_deferred(UI)
 	health_object = get_node("Interface/Base Bar/MoralEnergyBar")
+	mask1 = get_node("Interface/Control")
+	mask2 = get_node("Interface/Control2")
 	#Start anyTImers and such
 	spawn_NPC()
 
@@ -66,20 +72,24 @@ func _process(_delta: float) -> void:
 	#every frame check user in  
 	if(Input.is_action_just_pressed("esc")):
 		print('pause the game!')
-	if(Input.is_action_just_pressed("mask1")&&mask_selection):
+	if((Input.is_action_just_pressed("mask1")||selected == 1)&&mask_selection):
 		print('mask1 selected')
 		print('sent the rebel mask')
 		$dialog_prototype.set_mask_choice('1')
 		$dialog_prototype.end_encounter()
 		answer =1 
+		selected = 0
+		hide_masks()
 		##kill_npc()
-	if(Input.is_action_just_pressed('mask2')&&mask_selection):
+	if((Input.is_action_just_pressed('mask2')|| selected == 2)&&mask_selection):
 		print('mask2 selected')
 		print('sent the big brother mask')
 		mask.emit('2')
 		$dialog_prototype.set_mask_choice('2')
 		$dialog_prototype.end_encounter()
 		answer = 2
+		selected = 0
+		hide_masks()
 		##kill_npc()
 	
 	if(!active_guy&&running):
@@ -87,6 +97,7 @@ func _process(_delta: float) -> void:
 		if(!active_guy): spawn_NPC()
 
 func spawn_NPC():
+	hide_masks()
 	print('spawn an NPC')
 	visit_count += 1
 	active_guy = true
@@ -133,6 +144,7 @@ func change_score(num):
 func on_starting_dialog_ended(): 
 	mask_selection = true
 	print('mask_selection True')
+	show_masks()
 
 func on_ending_dialog_ended():
 	active_guy = false
@@ -152,7 +164,7 @@ func check_game_result(was_good):
 	if (result <= 0):
 		message_singal.emit("GAME OVER")
 		running = false
-	elif(result <= 0):
+	elif(result >= 100):
 		message_singal.emit("YOU WIN")
 		running = true
 	elif(len(used_list) == len(characterArray)):
@@ -173,3 +185,30 @@ func check_answer():
 		print('bad')
 		change_score(-30)
 		return false
+
+func hide_masks():
+	print("hide_masks")
+	if(mask1):
+		mask1.visible = false
+		$Interface/Control/Button.disabled = true
+	if(mask2):
+		mask2.visible = false
+		$Interface/Control2/Button.disabled = true
+
+func show_masks():
+	if(mask1):
+		mask1.visible = true
+		$Interface/Control/Button.disabled = false
+	if(mask2):
+		mask2.visible = true
+		$Interface/Control2/Button.disabled = false
+
+func mask1_selected():
+	selected = 1
+
+func mask2_selected():
+	selected = 2
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.
