@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cunrvqearo3gx" path="res://addons/UI/SteamPunk GUI/EnergyEmpty2.png" id="4_vef74"]
 [ext_resource type="Texture2D" uid="uid://ds5ej7crmf04r" path="res://addons/UI/SteamPunk GUI/EnergyFull2.png" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://bkaqrtlcpquo5" path="res://addons/UI/SteamPunk GUI/Inventory1L.png" id="6_j5wjh"]
-[ext_resource type="Script" path="res://addons/UI/Scene/interface.gd" id="7_iotsf"]
+[ext_resource type="Script" uid="uid://dyh6jjtrjsyto" path="res://addons/UI/Scene/interface.gd" id="7_iotsf"]
 [ext_resource type="Texture2D" uid="uid://gd4m5q5na6pk" path="res://addons/UI/SteamPunk GUI/MenuFull.PNG" id="8_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://d3jxd2kh1txmr" path="res://addons/UI/Scene/Base Moral Bar.tscn" id="9_215e1"]
 [ext_resource type="Texture2D" uid="uid://b51dgvercqjak" path="res://addons/UI/Images/Rebel play mask.jpg" id="10_7sc4i"]
@@ -263,6 +263,31 @@ alignment = 1
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 4
+tooltip_text = "A mask for those who support the rebellion"
+theme_override_colors/icon_hover_color = Color(0.3882353, 0.8039216, 0.40784314, 1)
+icon = ExtResource("10_7sc4i")
+autowrap_mode = 2
+autowrap_trim_flags = 192
+icon_alignment = 1
+expand_icon = true
+
+[node name="rebelbtn3" type="Button" parent="GameManager/Interface/Mask selection panel/HBoxContainer" unique_id=758489923]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "A mask for those who support the rebellion"
+theme_override_colors/icon_hover_color = Color(0.3882353, 0.8039216, 0.40784314, 1)
+icon = ExtResource("10_7sc4i")
+autowrap_mode = 2
+autowrap_trim_flags = 192
+icon_alignment = 1
+expand_icon = true
+
+[node name="rebelbtn4" type="Button" parent="GameManager/Interface/Mask selection panel/HBoxContainer" unique_id=16859099]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "A mask for those who support the rebellion"
 theme_override_colors/icon_hover_color = Color(0.3882353, 0.8039216, 0.40784314, 1)
 icon = ExtResource("10_7sc4i")
 autowrap_mode = 2
@@ -274,6 +299,8 @@ expand_icon = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 4
+tooltip_text = "A mask for those who Obey big brother
+"
 theme_override_colors/icon_hover_color = Color(0.3882353, 0.13333334, 0.40784314, 1)
 icon = ExtResource("11_80cx4")
 autowrap_mode = 2
@@ -288,4 +315,6 @@ expand_icon = true
 [connection signal="pressed" from="GameManager/Interface/Win Panel/PanelContainer/Returnbtn" to="GameManager/Interface" method="_on_returnbtn_pressed"]
 [connection signal="pressed" from="GameManager/Interface/Lose Panel/PanelContainer/Returnbtn" to="GameManager/Interface" method="_on_returnbtn_pressed"]
 [connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/rebelbtn" to="GameManager" method="mask1_selected"]
+[connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/rebelbtn3" to="GameManager" method="mask3_selected"]
+[connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/rebelbtn4" to="GameManager" method="mask4_selected"]
 [connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/obeybtn" to="GameManager" method="mask2_selected"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var score = 10
+var score = 40
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("score").text = "  score = " + str(score)
