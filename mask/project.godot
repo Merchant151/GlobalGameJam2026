@@ -24,6 +24,8 @@ BackgroundMusicScene="*uid://bthsbyx7wr7dq"
 [dialogic]
 
 directories/dch_directory={
+"abby_character": "res://characters/abby_character.dch",
+"bahaj_character": "res://characters/bahaj_character.dch",
 "characters/test_character1": "res://characters/test_character1.dch",
 "clarrisa_character": "res://characters/clarrisa_character.dch",
 "deli_character": "res://characters/deli_character.dch",

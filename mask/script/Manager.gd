@@ -33,6 +33,8 @@ $dialog_prototype/resources.character_tag_JARED,
 $dialog_prototype/resources.character_tag_TYLER,
 $dialog_prototype/resources.character_tag_WALTER,
 $dialog_prototype/resources.character_tag_VICA,
+$dialog_prototype/resources.character_tag_BAHAJ,
+$dialog_prototype/resources.character_tag_ABBY,
 ]
 #var character_paths= { $dialog_prototype/resources.character_tag_SOLDIER: {
 #	big_brother_variant:1,
@@ -46,7 +48,9 @@ var answer_key = [
 	[3,2], # Jarhead
 	[4,2], # Tyler
 	[4,2], # walter
-	[4,2]  # vica
+	[4,2],  # vica
+	[3,1],  # bahaj
+	[2,2]   # abby
 	] 
 var answer = null
 

@@ -11,6 +11,7 @@ var character_tag_WALTER = "walter"
 var character_tag_DELI = "deli"
 var character_tag_TYLER = "tyler"
 var character_tag_BAHAJ = "bahaj"
+var character_tag_ABBY = "abby"
 var characters = {
 	character_tag_MELODY: preload("res://characters/melody_character.dch"),
 	character_tag_VICA : preload("res://characters/vica_character.dch"),
@@ -19,7 +20,8 @@ var characters = {
 	character_tag_WALTER : preload("res://characters/walter_character.dch"),
 	character_tag_DELI : preload("res://characters/deli_character.dch"),
 	character_tag_TYLER: preload("res://characters/tyler_character.dch"),
-	character_tag_BAHAJ: preload("res://characters/bahaj_character.dch")
+	character_tag_BAHAJ: preload("res://characters/bahaj_character.dch"),
+	character_tag_ABBY: preload("res://characters/abby_character.dch")
 	}
 
 #var pre_dialog_options = {
@@ -57,6 +59,11 @@ var characters = {
 #PRO BIG BOTHER MASK
 # BIG BROTHER MASK (player choice text)
 var post_mask_1_player_options = {
+	character_tag_ABBY:[
+		["Here’s your mask."],
+		["Here’s your mask."]
+	],
+	
 	character_tag_BAHAJ:[
 		# Anti Bahaj variant 0 -> Big Brother mask
 		["Here’s your mask."],
@@ -115,6 +122,11 @@ var post_mask_1_player_options = {
 
 # REBELLION MASK (player choice text)
 var post_mask_2_player_options = {
+	character_tag_ABBY:[
+		["Yes, please join our cause."],
+		["Join the rebellion, and all your problems with Big Brother will be solved."]
+	],
+
 	character_tag_BAHAJ:[
 		# Anti Bahaj variant 0 -> Rebellion mask
 		["I feel like this mask is a better fit for you."],
@@ -173,6 +185,20 @@ var post_mask_2_player_options = {
 }
 
 var pre_dialog_options = {
+	character_tag_ABBY:[
+	[
+		"Hello, I am looking to fix a broken mask I have.",
+		"Man, I sure do hate that Big Brother forces us to wear this.",
+		"Rumour on the street is that there have been rebel groups forming around town.",
+        "Do you know any way I can join one?"
+	],
+	[
+		"Man, times have been hard lately. If only there were a rebellion to join against Big Brother.",
+		"Oh, and umm...",
+        "I need to fix my mask."
+	]
+],
+	
 	character_tag_BAHAJ:[
 	[
 		"I need to fix my mask immediately.",
@@ -299,6 +325,11 @@ var pre_dialog_options = {
 
 # Give Big Brother mask
 var post_mask_1_dialog_options = {
+	character_tag_ABBY:[
+		["Hmm..Thanks."],
+		["Thank you."]
+	],
+	
 	character_tag_BAHAJ:[
 		# Variant 0 response
 		["I hope one day we can all join together against this tyrant!"],
@@ -338,6 +369,11 @@ var post_mask_1_dialog_options = {
 
 # Give Rebellion Mask
 var post_mask_2_dialog_options = {
+	character_tag_ABBY:[
+		["Thank you!"],
+		["Thank you! You won’t regret this."]
+	],
+
 	character_tag_BAHAJ:[
 		# Variant 0 response
 		["I like this, you got guts, man."],
