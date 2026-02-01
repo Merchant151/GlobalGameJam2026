@@ -17,6 +17,7 @@ signal ending_dialog_ended
 func set_active_character(val):
 	active_character_tag = val
 func _ready() -> void:
+	Dialogic.connect("timeline_ended",on_timeline_ended)
 	#set_active_character($resources.character_tag_VICA)
 	#start_new_encounter()
 	pass
@@ -32,7 +33,7 @@ func start_new_encounter():
 	
 	timeline_0.events_processed = true
 	Dialogic.start(timeline_0)
-	Dialogic.connect("timeline_ended",on_timeline_ended)
+	
 
 	
 	
