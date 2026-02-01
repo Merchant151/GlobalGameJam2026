@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bthsbyx7wr7dq"]
+
+[ext_resource type="AudioStream" uid="uid://dwudkfof0sdwt" path="res://addons/Music/sadly-88769.mp3" id="1_7jm6x"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=928893775]
+stream = ExtResource("1_7jm6x")
+autoplay = true
