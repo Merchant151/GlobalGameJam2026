@@ -78,7 +78,7 @@ func _ready() -> void:
 	#UI = UI.instantiate()
 	#add_child.call_deferred(UI)
 	health_object = get_node("Interface/Base Bar/MoralEnergyBar")
-	suspect_object = get_node("Suspicion/HBoxContainer/TextureProgressBar")
+	suspect_object = $Suspicion/HBoxContainer/TextureProgressBar
 	suspect_object.value = suspect_value
 	
 	mask1 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn")
@@ -93,7 +93,7 @@ func _ready() -> void:
 	popup_info.visible = false
 	popup_lose.visible = false
 	popup_win.visible = false
-	set_suspect()
+	#set_suspect()
 	spawn_NPC()
 
 
@@ -202,7 +202,8 @@ func change_score(num):
 	if(health_object):
 		var cur = health_object.value
 		health_object.value = cur + num
-	if(suspect_value >= 0):
+	if(suspect_object):
+		#print(suspect_object)
 		var curs = suspect_value
 		suspect_object.value = curs 
 	pass
@@ -367,6 +368,7 @@ func change_suspect(num):
 	set_suspect()
 
 func set_suspect():
+	print("set suspect", suspect_value)
 	suspect_signal.emit(suspect_value)
 
 func _on_button_pressed() -> void:
