@@ -10,16 +10,16 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Vica",
+&"default_portrait": "abby_portrait",
 &"description": "",
-&"display_name": "Vica",
+&"display_name": "Abby",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Vica": {
+"abby_portrait": {
 "export_overrides": {
-"image": "\"res://portraits/vica_portrait.png\""
+"image": "\"res://portraits/abby_portrait.png\""
 },
 "mirror": false,
 "offset": Vector2(0, -150),

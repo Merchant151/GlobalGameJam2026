@@ -10,16 +10,16 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Vica",
+&"default_portrait": "bahaj_portait",
 &"description": "",
-&"display_name": "Vica",
+&"display_name": "Bahaj",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Vica": {
+"bahaj_portait": {
 "export_overrides": {
-"image": "\"res://portraits/vica_portrait.png\""
+"image": "\"res://portraits/bahaj_portrait.png\""
 },
 "mirror": false,
 "offset": Vector2(0, -150),
