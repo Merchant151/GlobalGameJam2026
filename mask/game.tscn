@@ -11,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://gd4m5q5na6pk" path="res://addons/UI/SteamPunk GUI/MenuFull.PNG" id="8_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://d3jxd2kh1txmr" path="res://addons/UI/Scene/Base Moral Bar.tscn" id="9_215e1"]
 [ext_resource type="Texture2D" uid="uid://d0i14cjn3ftc2" path="res://characters/mask_rebel_1.png" id="10_80cx4"]
-[ext_resource type="Texture2D" uid="uid://da8abu0sbq1ay" path="res://addons/UI/Images/Obey play mask.jpg" id="11_80cx4"]
 [ext_resource type="Texture2D" uid="uid://svu0itjxi4ip" path="res://characters/mask_rebel_2.png" id="11_e8heu"]
 [ext_resource type="Texture2D" uid="uid://dgvgr8640epfc" path="res://addons/UI/SteamPunk GUI/EnergyEmpty1.png" id="12_215e1"]
 [ext_resource type="Texture2D" uid="uid://c6pwlnqiw7vvy" path="res://characters/mask_rebel_3.png" id="12_rvswv"]
 [ext_resource type="Texture2D" uid="uid://m0n8c673s61q" path="res://addons/UI/Images/Watching eye.webp" id="13_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://x3fmm5tmrm0w" path="res://characters/big_brother_mask.png" id="13_80cx4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcyx"]
 texture = ExtResource("8_lc2xo")
@@ -349,7 +349,7 @@ size_flags_horizontal = 4
 tooltip_text = "A mask for those who Obey big brother
 "
 theme_override_colors/icon_hover_color = Color(0.3882353, 0.13333334, 0.40784314, 1)
-icon = ExtResource("11_80cx4")
+icon = ExtResource("13_80cx4")
 autowrap_mode = 2
 autowrap_trim_flags = 192
 icon_alignment = 1

@@ -90,6 +90,7 @@ func _ready() -> void:
 	popup_lose = get_node("Interface/Lose Panel")
 	popup_win = get_node("Interface/Win Panel")
 	popup_info = get_node("Interface/Info")
+	var pop_up_continue = get_node("Interface/Info/PanelContainer/Returnbtn")
 	popup_info.visible = false
 	popup_lose.visible = false
 	popup_win.visible = false
@@ -97,7 +98,9 @@ func _ready() -> void:
 	
 	$Interface/Info/TextEdit.text = "Hover over the masks to lean about them. Try to match the rebels with the best job for their personality. Don't give masks to those that might report you!"
 	popup_info.visible = true
-	await get_tree().create_timer(9.0).timeout
+	pop_up_continue.visible = false
+	await get_tree().create_timer(11.0).timeout
+	pop_up_continue.visible= true
 	popup_info.visible = false
 	
 	running = true
