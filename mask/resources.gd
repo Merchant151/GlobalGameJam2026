@@ -10,6 +10,7 @@ var character_tag_CLARRISA = "clarrisa"
 var character_tag_WALTER = "walter"
 var character_tag_DELI = "deli"
 var character_tag_TYLER = "tyler"
+var character_tag_BAHAJ = "bahaj"
 var characters = {
 	character_tag_MELODY: preload("res://characters/melody_character.dch"),
 	character_tag_VICA : preload("res://characters/vica_character.dch"),
@@ -17,7 +18,8 @@ var characters = {
 	character_tag_CLARRISA : preload("res://characters/clarrisa_character.dch"),
 	character_tag_WALTER : preload("res://characters/walter_character.dch"),
 	character_tag_DELI : preload("res://characters/deli_character.dch"),
-	character_tag_TYLER: preload("res://characters/tyler_character.dch")
+	character_tag_TYLER: preload("res://characters/tyler_character.dch"),
+	character_tag_BAHAJ: preload("res://characters/bahaj_character.dch")
 	}
 
 #var pre_dialog_options = {
@@ -55,6 +57,12 @@ var characters = {
 #PRO BIG BOTHER MASK
 # BIG BROTHER MASK (player choice text)
 var post_mask_1_player_options = {
+	character_tag_BAHAJ:[
+		# Anti Bahaj variant 0 -> Big Brother mask
+		["Here’s your mask."],
+		# Anti Bahaj variant 1 -> Big Brother mask
+		["Here’s your mask."]
+	],
 	character_tag_VICA:[
 		# Anti Vica -> Big Brother mask choice
 		["Here’s your mask."],
@@ -107,6 +115,13 @@ var post_mask_1_player_options = {
 
 # REBELLION MASK (player choice text)
 var post_mask_2_player_options = {
+	character_tag_BAHAJ:[
+		# Anti Bahaj variant 0 -> Rebellion mask
+		["I feel like this mask is a better fit for you."],
+		# Anti Bahaj variant 1 -> Rebellion mask
+		["Perhaps this mask may fit your face better."]
+	],
+	
 	character_tag_VICA:[
 		# Anti Vica -> Rebellion mask choice
 		["I feel like this mask is a better fit for you."],
@@ -158,6 +173,21 @@ var post_mask_2_player_options = {
 }
 
 var pre_dialog_options = {
+	character_tag_BAHAJ:[
+	[
+		"I need to fix my mask immediately.",
+		"Ever since Big Brother took over, cars all have to be painted the same color and pass strict inspections.",
+		"Most of the money I make just goes straight into Big Brother’s pockets.",
+		"Cracked my mask when an old car pipe fell on my face while I was working under a car.",
+        "One mask, please."
+	],
+	[
+		"Imagine a world where I didn’t have to come in and fix this cheap mask every week.",
+		"A big guy like me with such a small mask on my face—Big Brother, give me a break!",
+        "One new mask, please."
+	]
+],
+
 	character_tag_VICA:[
 		# Anti Big Brother
 		[
@@ -269,6 +299,13 @@ var pre_dialog_options = {
 
 # Give Big Brother mask
 var post_mask_1_dialog_options = {
+	character_tag_BAHAJ:[
+		# Variant 0 response
+		["I hope one day we can all join together against this tyrant!"],
+		# Variant 1 response
+		["I do hope that one day things will change.", "Have a good day, man."]
+	],
+
 	character_tag_VICA:[
 		["Things will never change, huh?"],
 		["Thank you, handsome."]
@@ -301,6 +338,13 @@ var post_mask_1_dialog_options = {
 
 # Give Rebellion Mask
 var post_mask_2_dialog_options = {
+	character_tag_BAHAJ:[
+		# Variant 0 response
+		["I like this, you got guts, man."],
+		# Variant 1 response
+		["Now this one looks like it fits me well."]
+	],
+
 	character_tag_VICA:[
 		["Hmm… this one certainly is more stylish."],
 		["I may work under the table, but I want nothing to do with that."]

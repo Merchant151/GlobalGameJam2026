@@ -187,6 +187,7 @@ text = "You Build a Rebllion to over throw Big Brother Enjoy the Spoils of Victo
 wrap_mode = 1
 
 [node name="Info" type="Panel" parent="GameManager/Interface" unique_id=1047211001]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
