@@ -11,8 +11,6 @@ var character_tag_WALTER = "clarrisa"
 var character_tag_DELI = "deli"
 var character_tag_TYLER = "tyler"
 var characters = {
-	character_tag_BALD_MAN: preload("res://characters/test_character1.dch"),
-	character_tag_SOLDIER: preload("res://characters/soldier_character.dch"),
 	character_tag_MELODY: preload("res://characters/melody_character.dch"),
 	character_tag_VICA : preload("res://characters/vica_character.dch"),
 	character_tag_JARED : preload("res://characters/jared_character.dch"),
