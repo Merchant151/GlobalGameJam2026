@@ -17,8 +17,8 @@ signal ending_dialog_ended
 func set_active_character(val):
 	active_character_tag = val
 func _ready() -> void:
-	set_active_character($resources.character_tag_VICA)
-	start_new_encounter()
+	#set_active_character($resources.character_tag_VICA)
+	#start_new_encounter()
 	pass
 func start_new_encounter():
 	curr_time_line = 0
@@ -105,10 +105,9 @@ func on_timeline_ended():
 	if curr_time_line==0:
 		curr_time_line = -1
 		starting_dialog_ended.emit()
-		end_encounter()
-	#if curr_time_line == 1 or curr_time_line == 2:
-		#ending_dialog_ended.emit()
-		#curr_time_line = -1
+	if curr_time_line == 1 or curr_time_line == 2:
+		ending_dialog_ended.emit()
+		curr_time_line = -1
 		#if choice =="1":
 			#timeline_1.events_processed = true
 			#Dialogic.start(timeline_1)
