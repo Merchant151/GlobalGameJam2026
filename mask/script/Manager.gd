@@ -20,6 +20,8 @@ var suspect_object = null
 var mask_trey = null
 var popup_win = null
 var popup_lose= null
+var popup_info = null
+var info_message = ""
 
 var selected = 0
 
@@ -83,6 +85,8 @@ func _ready() -> void:
 	mask_trey = get_node("Interface/Mask selection panel")
 	popup_lose = get_node("Interface/Lose Panel")
 	popup_win = get_node("Interface/Win Panel")
+	popup_info = get_node("Interface/Info")
+	popup_info.visible = false
 	popup_lose.visible = false
 	popup_win.visible = false
 	#set_suspect()
@@ -233,7 +237,12 @@ func check_game_result(was_good):
 		message_singal.emit('no one else visits the shop today!')
 	else:
 		print("game continues") 
-		
+		running = false
+		$Interface/Info/TextEdit.text = info_message
+		popup_info.visible = true
+		await get_tree().create_timer(4.0).timeout
+		popup_info.visible = false
+		running = true
 	
 
 func check_answer():

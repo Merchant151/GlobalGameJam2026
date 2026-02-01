@@ -147,6 +147,7 @@ size_flags_horizontal = 3
 script = ExtResource("7_iotsf")
 
 [node name="Win Panel" type="Panel" parent="GameManager/Interface" unique_id=1700685479]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,6 +184,45 @@ offset_top = 211.0
 offset_right = 776.0
 offset_bottom = 334.0
 text = "You Build a Rebllion to over throw Big Brother Enjoy the Spoils of Victory as you peel back his face, and Laugh at his demise!"
+wrap_mode = 1
+
+[node name="Info" type="Panel" parent="GameManager/Interface" unique_id=1047211001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GameManager/Interface/Info" unique_id=1651910644]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 143.0
+offset_right = 804.0
+offset_bottom = 394.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_emcyx")
+
+[node name="Label" type="Label" parent="GameManager/Interface/Info/PanelContainer" unique_id=422363019]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "
+News Bulitin!"
+uppercase = true
+
+[node name="Returnbtn" type="Button" parent="GameManager/Interface/Info/PanelContainer" unique_id=1953583990]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Continue
+"
+
+[node name="TextEdit" type="TextEdit" parent="GameManager/Interface/Info" unique_id=1331978448]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 211.0
+offset_right = 776.0
+offset_bottom = 334.0
+text = "The resistance grows!"
 wrap_mode = 1
 
 [node name="Lose Panel" type="Panel" parent="GameManager/Interface" unique_id=254378421]
