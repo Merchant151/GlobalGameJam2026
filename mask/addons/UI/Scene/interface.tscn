@@ -1,13 +1,98 @@
 [gd_scene format=3 uid="uid://cutehnrngpoow"]
 
-[ext_resource type="PackedScene" uid="uid://ntywb473wkvc" path="res://addons/UI/Scene/Join Rebels Button.tscn" id="1_6va6t"]
-[ext_resource type="PackedScene" uid="uid://cxjrts1kwfca6" path="res://addons/UI/Scene/Obey Brother Button.tscn" id="2_4yg1r"]
+[ext_resource type="Texture2D" uid="uid://gd4m5q5na6pk" path="res://addons/UI/SteamPunk GUI/MenuFull.PNG" id="1_4yg1r"]
+[ext_resource type="Script" uid="uid://dyh6jjtrjsyto" path="res://addons/UI/Scene/interface.gd" id="1_emcyx"]
+[ext_resource type="Texture2D" uid="uid://da8abu0sbq1ay" path="res://addons/UI/Images/Obey play mask.jpg" id="2_8kec2"]
+[ext_resource type="Texture2D" uid="uid://b51dgvercqjak" path="res://addons/UI/Images/Rebel play mask.jpg" id="3_6va6t"]
 [ext_resource type="PackedScene" uid="uid://d3jxd2kh1txmr" path="res://addons/UI/Scene/Base Moral Bar.tscn" id="3_emcyx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcyx"]
+texture = ExtResource("1_4yg1r")
 
 [node name="Interface" type="Control" unique_id=1147923417]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
+script = ExtResource("1_emcyx")
+
+[node name="Win Panel" type="Panel" parent="." unique_id=1700685479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Win Panel" unique_id=347169918]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 143.0
+offset_right = 804.0
+offset_bottom = 394.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_emcyx")
+
+[node name="Label" type="Label" parent="Win Panel/PanelContainer" unique_id=1938637364]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "
+You've Won"
+uppercase = true
+
+[node name="Returnbtn" type="Button" parent="Win Panel/PanelContainer" unique_id=713272499]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return to Menu
+"
+
+[node name="TextEdit" type="TextEdit" parent="Win Panel" unique_id=989818843]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 211.0
+offset_right = 776.0
+offset_bottom = 334.0
+text = "You Build a Rebllion to over throw Big Brother Enjoy the Spoils of Victory as you peel back his face, and Laugh at his demise!"
+wrap_mode = 1
+
+[node name="Lose Panel" type="Panel" parent="." unique_id=254378421]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Lose Panel" unique_id=1450057595]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 143.0
+offset_right = 804.0
+offset_bottom = 394.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_emcyx")
+
+[node name="Label" type="Label" parent="Lose Panel/PanelContainer" unique_id=280285012]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "
+You've Lost"
+uppercase = true
+
+[node name="Returnbtn" type="Button" parent="Lose Panel/PanelContainer" unique_id=332837626]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return to Menu
+"
+
+[node name="TextEdit" type="TextEdit" parent="Lose Panel" unique_id=823627871]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 211.0
+offset_right = 776.0
+offset_bottom = 334.0
+text = "You complacently adorn your mask. You're right where you belong Joining in song in honor of your loving, strong, and dominant..Big Brother"
+wrap_mode = 1
 
 [node name="Base Bar" parent="." unique_id=1439087780 instance=ExtResource("3_emcyx")]
 layout_mode = 1
@@ -17,21 +102,57 @@ offset_right = 726.0
 offset_bottom = 690.0
 scale = Vector2(0.5, 0.5)
 
-[node name="Control2" parent="." unique_id=2100260751 instance=ExtResource("2_4yg1r")]
+[node name="Mask selection panel" type="Panel" parent="." unique_id=938926497]
 layout_mode = 1
-offset_left = 334.0
-offset_top = 450.0
-offset_right = 334.0
-offset_bottom = 450.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 490.0
+offset_top = 444.0
+offset_right = 698.0
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Control" parent="." unique_id=226140978 instance=ExtResource("1_6va6t")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Mask selection panel" unique_id=877843386]
 layout_mode = 1
-offset_left = 667.0
-offset_top = 448.0
-offset_right = 667.0
-offset_bottom = 448.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -49.0
+offset_right = 169.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1576625257]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="rebelbtn" type="Button" parent="Mask selection panel/HBoxContainer" unique_id=948349907]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_hover_color = Color(0.3882353, 0.8039216, 0.40784314, 1)
+icon = ExtResource("3_6va6t")
+autowrap_mode = 2
+autowrap_trim_flags = 192
+icon_alignment = 1
+expand_icon = true
+
+[node name="obeybtn" type="Button" parent="Mask selection panel/HBoxContainer" unique_id=330462506]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_hover_color = Color(0.3882353, 0.13333334, 0.40784314, 1)
+icon = ExtResource("2_8kec2")
+autowrap_mode = 2
+autowrap_trim_flags = 192
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Win Panel/PanelContainer/Returnbtn" to="." method="_on_returnbtn_pressed"]
+[connection signal="pressed" from="Lose Panel/PanelContainer/Returnbtn" to="." method="_on_returnbtn_pressed"]
