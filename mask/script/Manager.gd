@@ -24,7 +24,15 @@ $dialog_prototype/resources.character_tag_VICA,
 #	big_brother_variant:1,
 #	}
 #}
-var answer_key = [[1,1] , [1,1],[1,1],[1,1],[1,1],[1,1],[1,1]] 
+var answer_key = [
+	[1,1], # Melody 
+	[1,1], # Clarrisa
+	[1,1], # DELI
+	[1,1], # Jarhead
+	[1,1], # Tyler
+	[1,1], # walter
+	[1,1]  # vica
+	] 
 var answer = null
 
 signal mask(maskNum)
