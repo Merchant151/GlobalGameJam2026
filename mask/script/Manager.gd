@@ -93,7 +93,7 @@ func _ready() -> void:
 	popup_info.visible = false
 	popup_lose.visible = false
 	popup_win.visible = false
-	#set_suspect()
+	set_suspect()
 	spawn_NPC()
 
 
@@ -202,7 +202,7 @@ func change_score(num):
 	if(health_object):
 		var cur = health_object.value
 		health_object.value = cur + num
-	if(suspect_object):
+	if(suspect_value >= 0):
 		var curs = suspect_value
 		suspect_object.value = curs 
 	pass
