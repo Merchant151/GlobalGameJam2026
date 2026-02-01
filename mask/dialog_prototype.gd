@@ -4,7 +4,7 @@ var varient = null
 var timeline_0 = null
 var timeline_1 = null
 var timeline_2 = null
-var choice = "2"
+var choice = "1"
 var curr_time_line = 0
 var active_character_tag
 
@@ -17,7 +17,8 @@ signal ending_dialog_ended
 func set_active_character(val):
 	active_character_tag = val
 func _ready() -> void:
-	#set_active_character($resources.character_tag_SOLDIER)
+	Dialogic.connect("timeline_ended",on_timeline_ended)
+	#set_active_character($resources.character_tag_VICA)
 	#start_new_encounter()
 	pass
 func start_new_encounter():
@@ -25,7 +26,6 @@ func start_new_encounter():
 	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
 	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
 	varient = randi()%len($resources.pre_dialog_options[active_character_tag])
-	print(varient)
 	build_pre_choice_timeline()
 	timeline_1 = build_post_choice_timeline("1")
 	timeline_2 = build_post_choice_timeline("2")
@@ -33,7 +33,7 @@ func start_new_encounter():
 	
 	timeline_0.events_processed = true
 	Dialogic.start(timeline_0)
-	Dialogic.connect("timeline_ended",on_timeline_ended)
+	
 
 	
 	
@@ -56,22 +56,30 @@ func build_pre_choice_timeline():
 	wait = DialogicWaitEvent.new()
 	wait.time = 1
 	events.push_back(wait)
-	var t_event = DialogicTextEvent.new()
-	t_event.text = "I have the perfect mask for you"
-	events.push_back(t_event)
-	wait = DialogicWaitEvent.new()
-	wait.time = 1
-	events.push_back(wait)
+	#var t_event = DialogicTextEvent.new()
+	#t_event.text = "I have the perfect mask for you"
+	#events.push_back(t_event)
+	#wait = DialogicWaitEvent.new()
+	#wait.time = 1
+	#events.push_back(wait)
 	timeline_0 = DialogicTimeline.new()
 	timeline_0.events = events
 func build_post_choice_timeline(choice):
 	var timeline = null
 	var events = []
+	###
+	var t_event = DialogicTextEvent.new()
+	t_event.text = $resources.get("post_mask_"+choice+"_player_options")[active_character_tag][varient][0]
+	events.push_back(t_event)
+	var wait = DialogicWaitEvent.new()
+	wait.time = 1
+	events.push_back(wait)
+	###
 	var event = DialogicCharacterEvent.new()
 	var character = $resources.characters[active_character_tag]
 	event.character = character
 	events.push_back(event)
-	var wait = DialogicWaitEvent.new()
+	wait = DialogicWaitEvent.new()
 	wait.time = 1
 	events.push_back(wait)
 	for option in $resources.get("post_mask_"+choice+"_dialog_options")[active_character_tag][varient]:

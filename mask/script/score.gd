@@ -14,3 +14,6 @@ func _process(_delta: float) -> void:
 func update_score(update_by):
 	score += update_by
 	get_node("score").text = "  score = " + str(score)
+
+func update_message(msg):
+	get_node("score").text = str(msg)
