@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bq5cmy0dll0f3"]
 
 [ext_resource type="Script" uid="uid://cwu77lre08ces" path="res://addons/UI/Menus/main_menu.gd" id="1_ub3iy"]
-[ext_resource type="Texture2D" uid="uid://c1jhls214c4eh" path="res://addons/UI/Big Brothe is watching you.png" id="2_ihj8b"]
+[ext_resource type="Texture2D" uid="uid://00htrwdhklxp" path="res://addons/UI/Images/image.jpg" id="2_53bq7"]
 [ext_resource type="FontFile" uid="uid://bu2umbfargwf8" path="res://addons/UI/Fonts/cs-gregory-drawn-font/CsgregorydrawnRegularDemo-Yqj7o.otf" id="3_ihj8b"]
 [ext_resource type="AudioStream" uid="uid://dxsdrodwac2b4" path="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Metallic/SFX_UI_Click_Designed_Metallic_Dirty_Negative_1.wav" id="4_53bq7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_53bq7"]
-texture = ExtResource("2_ihj8b")
+texture = ExtResource("2_53bq7")
 modulate_color = Color(0.73300546, 0.7330054, 0.7330054, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub3iy"]
