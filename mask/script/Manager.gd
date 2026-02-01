@@ -2,6 +2,7 @@ extends Node2D
 
 #
 var running = true
+var suspect_value = 20
 #
 var mask_selection = false
 var questioning = false
@@ -15,6 +16,7 @@ var mask2 = null
 var mask3 = null
 var mask4 = null
 
+var suspect_object = null
 var mask_trey = null
 var popup_win = null
 var popup_lose= null
@@ -38,16 +40,17 @@ var answer_key = [
 	#to modify the answer for rebel is correct change the first value in the sub-list
 	[1,2], # Melody 
 	[1,2], # Clarrisa
-	[1,2], # DELI
-	[1,2], # Jarhead
-	[1,2], # Tyler
-	[1,2], # walter
-	[1,2]  # vica
+	[3,2], # DELI
+	[3,2], # Jarhead
+	[4,2], # Tyler
+	[4,2], # walter
+	[4,2]  # vica
 	] 
 var answer = null
 
 signal mask(maskNum)
 signal score_signal(update_by)
+signal suspect_signal(update_to)
 signal message_singal(message)
 @export var score_path : NodePath 
 
@@ -56,6 +59,7 @@ func _ready() -> void:
 	print('Hello World')
 	var score_node = get_node(score_path)
 	score_signal.connect(score_node.update_score)
+	suspect_signal.connect(score_node.update_suspect)
 	message_singal.connect(score_node.update_message)
 	var dial = $dialog_prototype
 	dial.starting_dialog_ended.connect(on_starting_dialog_ended)
@@ -68,6 +72,9 @@ func _ready() -> void:
 	#UI = UI.instantiate()
 	#add_child.call_deferred(UI)
 	health_object = get_node("Interface/Base Bar/MoralEnergyBar")
+	suspect_object = get_node("Suspicion/HBoxContainer/TextureProgressBar")
+	suspect_object.value = suspect_value
+	
 	mask1 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn")
 	mask2 = get_node("Interface/Mask selection panel/HBoxContainer/obeybtn")
 	mask3 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn3")
@@ -78,7 +85,7 @@ func _ready() -> void:
 	popup_win = get_node("Interface/Win Panel")
 	popup_lose.visible = false
 	popup_win.visible = false
-	
+	#set_suspect()
 	spawn_NPC()
 
 
@@ -115,7 +122,7 @@ func _process(_delta: float) -> void:
 		answer = 3
 		selected = 0
 		hide_masks()
-	if((Input.is_action_just_pressed('mask4')|| selected == 2)&&mask_selection):
+	if((Input.is_action_just_pressed('mask4')|| selected == 4)&&mask_selection):
 		print('mask selected')
 		print('sent the rebel mask')
 		$dialog_prototype.set_mask_choice('2')
@@ -166,11 +173,30 @@ func kill_npc():
 
 
 func change_score(num):
+	if (num > 0):
+		#positive score movement
+		if(suspect_value > 80):
+			num = num - 10
+		elif(suspect_value > 60):
+			num = num - 5
+		elif(suspect_value < 30):
+			num = num + 10
+	else:
+		#negative score movement
+		if(suspect_value > 80):
+			num = num - 20
+		elif(suspect_value > 60):
+			num = num - 10
+		else:
+			num = num + 5
 	print('change score by ', num)
 	score_signal.emit(num)
 	if(health_object):
 		var cur = health_object.value
 		health_object.value = cur + num
+	if(suspect_object):
+		var curs = suspect_value
+		suspect_object.value = curs 
 	pass
 
 func on_starting_dialog_ended(): 
@@ -211,23 +237,26 @@ func check_game_result(was_good):
 	
 
 func check_answer():
-	if(answer_key[car][int($dialog_prototype.varient)] == 1):
+	if(answer_key[car][int($dialog_prototype.varient)] != 2):
 		#this is someone who prefers a rebel mask
 		pass
 		if(answer == 2 ):
 			#give them the big brother mask
 			change_score(-20)
+			change_suspect(-20)
 			return false
 		elif(answer == answer_key[car][int($dialog_prototype.varient)]):
 			#give the rebel the exact mask they want
 			print('answer',answer)
 			print('exact fit!')
-			change_score(+30)
+			change_score(30)
+			change_suspect(5)
 			return true
 		else: 
 			print('answer')
 			print('almost Match')
 			change_score(10)
+			change_suspect(10)
 			return true
 	elif(answer_key[car][int($dialog_prototype.varient)] == 2):
 		#this is someone who prefers a Big brother mask. 
@@ -235,13 +264,15 @@ func check_answer():
 			#gave a big brother mask to a big brother supporter
 			#moral drops but so does suspission
 			change_score(-10)
+			change_suspect(-20)
 			return true
-			#change_suspect(-20)
+			
 		else:
 			#give big brother any rebel mask
 			change_score(-20)
+			change_suspect(30)
 			return false
-			#change_suspect(30)
+			
 
 	#if (answer_key[car][int($dialog_prototype.varient)] == answer):
 		#print('correct player match')
@@ -309,6 +340,16 @@ func mask4_selected():
 func mask2_selected():
 	selected = 2
 
+func change_suspect(num):
+	suspect_value = suspect_value + num
+	if(suspect_value <= 0):
+		suspect_object = 0
+	elif(suspect_value >= 100):
+		suspect_value = 100
+	set_suspect()
+
+func set_suspect():
+	suspect_signal.emit(suspect_value)
 
 func _on_button_pressed() -> void:
 	pass # Replace with function body.

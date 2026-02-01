@@ -15,7 +15,7 @@ var characters = {
 	character_tag_VICA : preload("res://characters/vica_character.dch"),
 	character_tag_JARED : preload("res://characters/jared_character.dch"),
 	character_tag_CLARRISA : preload("res://characters/clarrisa_character.dch"),
-	character_tag_WALTER : preload("res://characters/clarrisa_character.dch"),
+	character_tag_WALTER : preload("res://characters/walter_character.dch"),
 	character_tag_DELI : preload("res://characters/deli_character.dch"),
 	character_tag_TYLER: preload("res://characters/tyler_character.dch")
 	}
