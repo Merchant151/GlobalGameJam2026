@@ -397,6 +397,7 @@ expand_mode = 1
 [connection signal="pressed" from="GameManager/Interface_old/Control2/Button" to="GameManager" method="mask2_selected"]
 [connection signal="pressed" from="GameManager/Interface_old/Control/Button" to="GameManager" method="mask1_selected"]
 [connection signal="pressed" from="GameManager/Interface/Win Panel/PanelContainer/Returnbtn" to="GameManager/Interface" method="_on_returnbtn_pressed"]
+[connection signal="pressed" from="GameManager/Interface/Info/PanelContainer/Returnbtn" to="GameManager" method="skip_info"]
 [connection signal="pressed" from="GameManager/Interface/Lose Panel/PanelContainer/Returnbtn" to="GameManager/Interface" method="_on_returnbtn_pressed"]
 [connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/rebelbtn" to="GameManager" method="mask1_selected"]
 [connection signal="pressed" from="GameManager/Interface/Mask selection panel/HBoxContainer/rebelbtn3" to="GameManager" method="mask3_selected"]

@@ -251,6 +251,7 @@ func check_answer():
 		pass
 		if(answer == 2 ):
 			#give them the big brother mask
+			info_message = "Big Brother is less suspicious of Mask sellers but the resistance grows weaker"
 			change_score(-20)
 			change_suspect(-20)
 			return false
@@ -258,12 +259,14 @@ func check_answer():
 			#give the rebel the exact mask they want
 			print('answer',answer)
 			print('exact fit!')
+			info_message = "The resistance grows much stronger and Big Brother doesn't know why"
 			change_score(30)
 			change_suspect(5)
 			return true
 		else: 
 			print('answer')
 			print('almost Match')
+			info_message = "The resistance grows stronger but Big Brother grows suspicious of Mask sellers"
 			change_score(10)
 			change_suspect(10)
 			return true
@@ -272,12 +275,14 @@ func check_answer():
 		if (answer == 2):
 			#gave a big brother mask to a big brother supporter
 			#moral drops but so does suspission
+			info_message = "Big Brother grows less suspicious but the resistance looses moral"
 			change_score(-10)
 			change_suspect(-20)
 			return true
 			
 		else:
 			#give big brother any rebel mask
+			info_message = "Big Brother grows supicous of Mask sellers and cracks down on the resistance"
 			change_score(-20)
 			change_suspect(30)
 			return false
@@ -362,3 +367,7 @@ func set_suspect():
 
 func _on_button_pressed() -> void:
 	pass # Replace with function body.
+
+func skip_info():
+	running = true
+	popup_info.visible = false
