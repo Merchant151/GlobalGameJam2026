@@ -72,6 +72,9 @@ func _ready() -> void:
 	#UI = UI.instantiate()
 	#add_child.call_deferred(UI)
 	health_object = get_node("Interface/Base Bar/MoralEnergyBar")
+	suspect_object = get_node("Suspicion/HBoxContainer/TextureProgressBar")
+	suspect_object.value = suspect_value
+	
 	mask1 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn")
 	mask2 = get_node("Interface/Mask selection panel/HBoxContainer/obeybtn")
 	mask3 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn3")
