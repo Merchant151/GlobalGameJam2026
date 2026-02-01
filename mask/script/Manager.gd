@@ -16,6 +16,7 @@ var mask2 = null
 var mask3 = null
 var mask4 = null
 
+var suspect_object = null
 var mask_trey = null
 var popup_win = null
 var popup_lose= null
@@ -188,6 +189,9 @@ func change_score(num):
 	if(health_object):
 		var cur = health_object.value
 		health_object.value = cur + num
+	if(suspect_object):
+		var curs = suspect_value
+		suspect_object.value = curs 
 	pass
 
 func on_starting_dialog_ended(): 
