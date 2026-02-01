@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://dsu77b5b7jnw7"]
 
 [ext_resource type="PackedScene" uid="uid://cutehnrngpoow" path="res://addons/UI/Scene/interface.tscn" id="1_arswq"]
+[ext_resource type="Texture2D" uid="uid://cunrvqearo3gx" path="res://addons/UI/SteamPunk GUI/EnergyEmpty2.png" id="2_7qhlx"]
+[ext_resource type="Texture2D" uid="uid://dgvgr8640epfc" path="res://addons/UI/SteamPunk GUI/EnergyEmpty1.png" id="3_6hqn2"]
+[ext_resource type="Texture2D" uid="uid://m0n8c673s61q" path="res://addons/UI/Images/Watching eye.webp" id="4_7qhlx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l80et"]
 
 [node name="Game UI" type="Node2D" unique_id=1775358642]
 
@@ -12,3 +17,43 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1420825168]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 242.0
+offset_top = 14.0
+offset_right = 763.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_l80et")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1647792590]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer/HBoxContainer" unique_id=370615331]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 10.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = ExtResource("2_7qhlx")
+texture_progress = ExtResource("3_6hqn2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer/HBoxContainer" unique_id=1665777718]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/NinePatchRect" unique_id=58021706]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -50.5
+offset_right = 103.0
+offset_bottom = 44.5
+grow_vertical = 2
+texture = ExtResource("4_7qhlx")
+expand_mode = 1

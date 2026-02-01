@@ -1,0 +1,254 @@
+[gd_scene format=3 uid="uid://bq5cmy0dll0f3"]
+
+[ext_resource type="Script" uid="uid://cwu77lre08ces" path="res://addons/UI/Menus/main_menu.gd" id="1_ub3iy"]
+[ext_resource type="Texture2D" uid="uid://c1jhls214c4eh" path="res://addons/UI/Big Brothe is watching you.png" id="2_ihj8b"]
+[ext_resource type="FontFile" uid="uid://bu2umbfargwf8" path="res://addons/UI/Fonts/cs-gregory-drawn-font/CsgregorydrawnRegularDemo-Yqj7o.otf" id="3_ihj8b"]
+[ext_resource type="AudioStream" uid="uid://dxsdrodwac2b4" path="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Metallic/SFX_UI_Click_Designed_Metallic_Dirty_Negative_1.wav" id="4_53bq7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_53bq7"]
+texture = ExtResource("2_ihj8b")
+modulate_color = Color(0.73300546, 0.7330054, 0.7330054, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub3iy"]
+bg_color = Color(0.09019608, 0.09019608, 0.09019608, 0.92941177)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihj8b"]
+bg_color = Color(0.5409904, 0.54099053, 0.5409904, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2dtx"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5e13"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6ofa"]
+bg_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53bq7"]
+bg_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+
+[node name="MainMenu" type="Control" unique_id=2040315814]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+script = ExtResource("1_ub3iy")
+
+[node name="Panel" type="Panel" parent="." unique_id=2133689813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 625.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_53bq7")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1438676168]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1149.0
+offset_top = 2.0
+offset_right = -526.0
+offset_bottom = 651.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ub3iy")
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=696948097]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 20
+theme_override_fonts/font = ExtResource("3_ihj8b")
+theme_override_font_sizes/font_size = 65
+text = "Do You Belong?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuPanel" type="Panel" parent="PanelContainer" unique_id=1134095882]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihj8b")
+
+[node name="MainButtons" type="VBoxContainer" parent="PanelContainer/MenuPanel" unique_id=1801603396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -105.0
+offset_right = 100.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Start Btn" type="Button" parent="PanelContainer/MenuPanel/MainButtons" unique_id=1409422246]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ihj8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2dtx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e5e13")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u6ofa")
+text = "Start"
+
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Start Btn" unique_id=2054219495]
+stream = ExtResource("4_53bq7")
+
+[node name="Credits Btn" type="Button" parent="PanelContainer/MenuPanel/MainButtons" unique_id=2111143481]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ihj8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2dtx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e5e13")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u6ofa")
+text = "Credits
+"
+
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Credits Btn" unique_id=460942212]
+stream = ExtResource("4_53bq7")
+
+[node name="Quit Btn" type="Button" parent="PanelContainer/MenuPanel/MainButtons" unique_id=112178881]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ihj8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2dtx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e5e13")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u6ofa")
+text = "Quit
+"
+
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="PanelContainer/MenuPanel/MainButtons/Quit Btn" unique_id=364203384]
+stream = ExtResource("4_53bq7")
+
+[node name="CreditsPanel" type="Panel" parent="PanelContainer" unique_id=1758618358]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_53bq7")
+
+[node name="Label" type="Label" parent="PanelContainer/CreditsPanel" unique_id=171399097]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 55.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ihj8b")
+theme_override_font_sizes/font_size = 32
+text = "Credits
+"
+
+[node name="Credits Container" type="VBoxContainer" parent="PanelContainer/CreditsPanel" unique_id=1335586163]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -64.0
+offset_right = 82.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="PanelContainer/CreditsPanel/Credits Container" unique_id=2011599062]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mart-Programmer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name2" type="Label" parent="PanelContainer/CreditsPanel/Credits Container" unique_id=649707116]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Rubben-Programmer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name3" type="Label" parent="PanelContainer/CreditsPanel/Credits Container" unique_id=1810255435]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Ahkeelah - Artist"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name4" type="Label" parent="PanelContainer/CreditsPanel/Credits Container" unique_id=1764720994]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Kyleel - Designer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back Btn" type="Button" parent="PanelContainer/CreditsPanel" unique_id=503407239]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ihj8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2dtx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e5e13")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u6ofa")
+text = "Back to Main Menu
+
+
+"
+
+[connection signal="mouse_entered" from="PanelContainer/MenuPanel/MainButtons/Start Btn" to="." method="_on_start_btn_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/MenuPanel/MainButtons/Start Btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuPanel/MainButtons/Credits Btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuPanel/MainButtons/Quit Btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/CreditsPanel/Back Btn" to="." method="_on_back_btn_pressed"]

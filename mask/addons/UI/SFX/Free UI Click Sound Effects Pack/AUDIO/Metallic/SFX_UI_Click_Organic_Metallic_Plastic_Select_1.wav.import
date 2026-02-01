@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbip0kvgrebb3"
+path="res://.godot/imported/SFX_UI_Click_Organic_Metallic_Plastic_Select_1.wav-4ab1645b722e73dbc89b9d8d380c6350.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Metallic/SFX_UI_Click_Organic_Metallic_Plastic_Select_1.wav"
+dest_files=["res://.godot/imported/SFX_UI_Click_Organic_Metallic_Plastic_Select_1.wav-4ab1645b722e73dbc89b9d8d380c6350.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctd1leb4xntjk"
+path="res://.godot/imported/SFX_UI_Click_Organic_Crispy_Negative_Error_1.wav-e0120e70f99fa4d16154877b0dbbfb3c.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Crispy/SFX_UI_Click_Organic_Crispy_Negative_Error_1.wav"
+dest_files=["res://.godot/imported/SFX_UI_Click_Organic_Crispy_Negative_Error_1.wav-e0120e70f99fa4d16154877b0dbbfb3c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

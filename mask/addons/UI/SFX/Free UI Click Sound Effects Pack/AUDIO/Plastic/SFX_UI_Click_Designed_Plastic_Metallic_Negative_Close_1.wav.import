@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6trcgfidcoov"
+path="res://.godot/imported/SFX_UI_Click_Designed_Plastic_Metallic_Negative_Close_1.wav-29106eb05831de2c1f04b26ea21d8f6d.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Plastic/SFX_UI_Click_Designed_Plastic_Metallic_Negative_Close_1.wav"
+dest_files=["res://.godot/imported/SFX_UI_Click_Designed_Plastic_Metallic_Negative_Close_1.wav-29106eb05831de2c1f04b26ea21d8f6d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

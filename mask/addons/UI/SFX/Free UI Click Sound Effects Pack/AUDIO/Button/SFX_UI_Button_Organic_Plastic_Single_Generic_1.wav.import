@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cta3b1jnkrb6t"
+path="res://.godot/imported/SFX_UI_Button_Organic_Plastic_Single_Generic_1.wav-c3e193f3a51430e5085d060296c653de.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Button/SFX_UI_Button_Organic_Plastic_Single_Generic_1.wav"
+dest_files=["res://.godot/imported/SFX_UI_Button_Organic_Plastic_Single_Generic_1.wav-c3e193f3a51430e5085d060296c653de.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

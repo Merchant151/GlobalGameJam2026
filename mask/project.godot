@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="mask"
-run/main_scene="uid://b17s7517minmj"
+run/main_scene="uid://bq5cmy0dll0f3"
 config/features=PackedStringArray("4.6")
 config/icon="res://portraits/icon.png"
 
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+FadeToBlack="*uid://csjruq100dfn4"
+BackgroundMusicScene="*uid://bthsbyx7wr7dq"
 
 [dialogic]
 
@@ -100,4 +102,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+renderer/rendering_method="mobile"
 environment/defaults/default_environment="res://default_env.tres"

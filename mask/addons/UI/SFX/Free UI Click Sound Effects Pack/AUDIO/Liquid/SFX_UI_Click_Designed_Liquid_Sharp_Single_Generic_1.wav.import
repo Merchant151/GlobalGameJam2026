@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drtt588cicu5q"
+path="res://.godot/imported/SFX_UI_Click_Designed_Liquid_Sharp_Single_Generic_1.wav-1db7c7cafed988d5ab95b3edb122ea0b.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Liquid/SFX_UI_Click_Designed_Liquid_Sharp_Single_Generic_1.wav"
+dest_files=["res://.godot/imported/SFX_UI_Click_Designed_Liquid_Sharp_Single_Generic_1.wav-1db7c7cafed988d5ab95b3edb122ea0b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

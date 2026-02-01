@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://he0oqudhe83j"
+path="res://.godot/imported/SFX_UI_Button_Keyboard_Space_Thick_2.wav-7924ef026b335854cb613e4993f7ba08.sample"
+
+[deps]
+
+source_file="res://addons/UI/SFX/Free UI Click Sound Effects Pack/AUDIO/Button/SFX_UI_Button_Keyboard_Space_Thick_2.wav"
+dest_files=["res://.godot/imported/SFX_UI_Button_Keyboard_Space_Thick_2.wav-7924ef026b335854cb613e4993f7ba08.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
