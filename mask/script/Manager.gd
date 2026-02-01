@@ -12,6 +12,9 @@ var visit_count = 0
 var used_list = []
 var mask1 = null
 var mask2 = null
+var mask3 = null
+var mask4 = null
+
 var mask_trey = null
 var popup_win = null
 var popup_lose= null
@@ -32,6 +35,7 @@ $dialog_prototype/resources.character_tag_VICA,
 #	}
 #}
 var answer_key = [
+	#to modify the answer for rebel is correct change the first value in the sub-list
 	[1,2], # Melody 
 	[1,2], # Clarrisa
 	[1,2], # DELI
@@ -66,6 +70,9 @@ func _ready() -> void:
 	health_object = get_node("Interface/Base Bar/MoralEnergyBar")
 	mask1 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn")
 	mask2 = get_node("Interface/Mask selection panel/HBoxContainer/obeybtn")
+	mask3 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn3")
+	mask4 = get_node("Interface/Mask selection panel/HBoxContainer/rebelbtn4")
+	
 	mask_trey = get_node("Interface/Mask selection panel")
 	popup_lose = get_node("Interface/Lose Panel")
 	popup_win = get_node("Interface/Win Panel")
@@ -99,6 +106,23 @@ func _process(_delta: float) -> void:
 		selected = 0
 		hide_masks()
 		##kill_npc()
+	if((Input.is_action_just_pressed('mask3')|| selected == 3)&&mask_selection):
+		print('mask3 selected')
+		print('sent the second rebel mask')
+		#mask.emit('2')
+		$dialog_prototype.set_mask_choice('2')
+		$dialog_prototype.end_encounter()
+		answer = 3
+		selected = 0
+		hide_masks()
+	if((Input.is_action_just_pressed('mask4')|| selected == 2)&&mask_selection):
+		print('mask selected')
+		print('sent the rebel mask')
+		$dialog_prototype.set_mask_choice('2')
+		$dialog_prototype.end_encounter()
+		answer = 4
+		selected = 0
+		hide_masks()
 	
 	if(!active_guy&&running):
 		await get_tree().create_timer(2.0).timeout
@@ -187,26 +211,58 @@ func check_game_result(was_good):
 	
 
 func check_answer():
-	if (answer_key[car][int($dialog_prototype.varient)] == answer):
-		print('correct player match')
-		if (answer == 1):
-			#gave a rebel mask to an aspiring rebel
-			change_score(30)
-		if (answer == 2):
-			#strengthened Big Brothers hold But reduces supsisions
-			change_score(-10)
-		return true
-	else:
-		print('gave player the wrong mask')
-		if (answer == 1):
-			#Gave a snitch a rebel mask
-			change_score(-30)
-			pass
-		elif (answer == 2):
-			#turned away a lost soul Weekening the rebellion
-			#decrease suspission
+	if(answer_key[car][int($dialog_prototype.varient)] == 1):
+		#this is someone who prefers a rebel mask
+		pass
+		if(answer == 2 ):
+			#give them the big brother mask
 			change_score(-20)
-		return false
+			return false
+		elif(answer == answer_key[car][int($dialog_prototype.varient)]):
+			#give the rebel the exact mask they want
+			print('answer',answer)
+			print('exact fit!')
+			change_score(+30)
+			return true
+		else: 
+			print('answer')
+			print('almost Match')
+			change_score(10)
+			return true
+	elif(answer_key[car][int($dialog_prototype.varient)] == 2):
+		#this is someone who prefers a Big brother mask. 
+		if (answer == 2):
+			#gave a big brother mask to a big brother supporter
+			#moral drops but so does suspission
+			change_score(-10)
+			return true
+			#change_suspect(-20)
+		else:
+			#give big brother any rebel mask
+			change_score(-20)
+			return false
+			#change_suspect(30)
+
+	#if (answer_key[car][int($dialog_prototype.varient)] == answer):
+		#print('correct player match')
+		#if (answer == 1):
+			##gave a rebel mask to an aspiring rebel
+			#change_score(30)
+		#if (answer == 2):
+			##strengthened Big Brothers hold But reduces supsisions
+			#change_score(-10)
+		#return true
+	#else:
+		#print('gave player the wrong mask')
+		#if (answer == 1):
+			##Gave a snitch a rebel mask
+			#change_score(-30)
+			#pass
+		#elif (answer == 2):
+			##turned away a lost soul Weekening the rebellion
+			##decrease suspission
+			#change_score(-20)
+		#return false
 
 func hide_masks():
 	print("hide_masks")
@@ -218,6 +274,12 @@ func hide_masks():
 	if(mask2):
 		mask2.visible = false
 		$"Interface/Mask selection panel/HBoxContainer/obeybtn".disabled = true
+	if(mask3):
+		mask3.visible = false
+		$"Interface/Mask selection panel/HBoxContainer/rebelbtn3".disabled = true
+	if(mask4):
+		mask4.visible = false
+		$"Interface/Mask selection panel/HBoxContainer/rebelbtn4".disabled = true
 
 func show_masks():
 	if(mask_trey):
@@ -228,9 +290,21 @@ func show_masks():
 	if(mask2):
 		mask2.visible = true
 		$"Interface/Mask selection panel/HBoxContainer/obeybtn".disabled = false
+	if(mask3):
+		mask3.visible = true
+		$"Interface/Mask selection panel/HBoxContainer/rebelbtn3".disabled = false
+	if(mask4):
+		mask4.visible = true
+		$"Interface/Mask selection panel/HBoxContainer/rebelbtn4".disabled = false
 
 func mask1_selected():
 	selected = 1
+	
+func mask3_selected():
+	selected = 3
+
+func mask4_selected():
+	selected = 4
 
 func mask2_selected():
 	selected = 2
