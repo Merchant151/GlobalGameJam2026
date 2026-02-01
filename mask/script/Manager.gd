@@ -375,3 +375,7 @@ func _on_button_pressed() -> void:
 func skip_info():
 	running = true
 	popup_info.visible = false
+
+func exit_to_main():
+	get_tree().change_scene_to_file("res://addons/UI/Menus/Main_Menu.tscn")
+	pass
