@@ -40,11 +40,11 @@ var answer_key = [
 	#to modify the answer for rebel is correct change the first value in the sub-list
 	[1,2], # Melody 
 	[1,2], # Clarrisa
-	[1,2], # DELI
-	[1,2], # Jarhead
-	[1,2], # Tyler
-	[1,2], # walter
-	[1,2]  # vica
+	[3,2], # DELI
+	[3,2], # Jarhead
+	[4,2], # Tyler
+	[4,2], # walter
+	[4,2]  # vica
 	] 
 var answer = null
 
@@ -232,7 +232,7 @@ func check_game_result(was_good):
 	
 
 func check_answer():
-	if(answer_key[car][int($dialog_prototype.varient)] == 1):
+	if(answer_key[car][int($dialog_prototype.varient)] != 2):
 		#this is someone who prefers a rebel mask
 		pass
 		if(answer == 2 ):
