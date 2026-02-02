@@ -3,7 +3,7 @@ extends Node2D
 #
 var running = false
 var suspect_value = 20
-#
+# 
 var mask_selection = false
 var questioning = false
 var active_guy = false

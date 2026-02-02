@@ -164,7 +164,6 @@ stream = ExtResource("4_53bq7")
 volume_db = 10.0
 
 [node name="CreditsPanel" type="Panel" parent="PanelContainer" unique_id=1758618358]
-visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -203,14 +202,14 @@ grow_vertical = 2
 [node name="Name" type="Label" parent="PanelContainer/CreditsPanel/Credits Container" unique_id=2011599062]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Mart-Programmer"
+text = "Mart -Game Programmer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Name2" type="Label" parent="PanelContainer/CreditsPanel/Credits Container" unique_id=649707116]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Rubben-Programmer"
+text = "Reuben- Lead Programmer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
