@@ -2,9 +2,9 @@
 # Do you belong 
 
 
-![Project Logo](https://github.com "do you belong")
+![Project Logo]((https://github.com/Merchant151/GlobalGameJam2026/blob/master/7aPJ1H.jpg) "do you belong")
 
-Itch page: 
+Itch page: [https://kyleelg.itch.io/do-you-belong](https://kyleelg.itch.io/do-you-belong)
 
 📢 About
 # Do You Belong?
