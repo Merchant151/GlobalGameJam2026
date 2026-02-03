@@ -43,7 +43,7 @@ Shader Code: Retro VHS Glitch for Godot 4 phillip_parente from https://godotshad
 This event was hosted at CMII@GSU by Panther Dev & Global Game Jam.
 
 # Team
-- Mart
-- Reuben
-- Ahkeelah
-- kyleelg
+- Mart - Game Programmer
+- Reuben - Lead Programmer & Artist
+- Ahkeelah - Artist & Character Design
+- kyleelg Game Design and UI Design
