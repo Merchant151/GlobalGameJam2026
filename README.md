@@ -2,7 +2,7 @@
 # Do you belong 
 
 
-![Project Logo]((https://github.com/Merchant151/GlobalGameJam2026/blob/master/7aPJ1H.jpg) "do you belong")
+![Project Logo](7aPJ1H.jpg "do you belong")
 
 Itch page: [https://kyleelg.itch.io/do-you-belong](https://kyleelg.itch.io/do-you-belong)
 
