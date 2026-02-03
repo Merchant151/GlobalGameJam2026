@@ -1,4 +1,3 @@
-# GlobalGameJam2026 #CMII @GSU
 # Do you belong 
 
 
@@ -40,6 +39,8 @@ UI SFX: from  https://www.swish-swoosh.com/ on Game dev market
 UI: SteamPunk GUI Handcrafted by H3nd3rs0n from Game dev Market
 
 Shader Code: Retro VHS Glitch for Godot 4 phillip_parente from https://godotshaders.com/shader/retro-vhs-glitch-for-godot-4/
+
+This event was hosted at CMII@GSU by Panther Dev & Global Game Jam.
 
 # Team
 Mart
